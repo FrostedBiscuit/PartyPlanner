@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PartyPlanner.Rest", "PartyPlanner.Rest.csproj", "{624CF19B-24A8-4DBD-B509-E4600EB2C60F}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PartyPlanner.Rest", "PartyPlanner.Rest", "{26500587-CF9D-4AE9-B01A-70F2B6806F5D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PartyPlanner.Rest", "PartyPlanner.Rest\PartyPlanner.Rest.csproj", "{77127AFC-CE6B-4C86-B0EA-FEEAA3F9227F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,16 +13,16 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{624CF19B-24A8-4DBD-B509-E4600EB2C60F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{624CF19B-24A8-4DBD-B509-E4600EB2C60F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{624CF19B-24A8-4DBD-B509-E4600EB2C60F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{624CF19B-24A8-4DBD-B509-E4600EB2C60F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77127AFC-CE6B-4C86-B0EA-FEEAA3F9227F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77127AFC-CE6B-4C86-B0EA-FEEAA3F9227F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77127AFC-CE6B-4C86-B0EA-FEEAA3F9227F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77127AFC-CE6B-4C86-B0EA-FEEAA3F9227F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{624CF19B-24A8-4DBD-B509-E4600EB2C60F} = {26500587-CF9D-4AE9-B01A-70F2B6806F5D}
+		{77127AFC-CE6B-4C86-B0EA-FEEAA3F9227F} = {26500587-CF9D-4AE9-B01A-70F2B6806F5D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A58E42C0-6833-4C82-94E6-8D0488F86E90}
