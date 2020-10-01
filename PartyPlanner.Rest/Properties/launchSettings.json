@@ -1,29 +1,47 @@
-﻿{
-  "$schema": "http://json.schemastore.org/launchsettings.json",
+{
   "iisSettings": {
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:49932",
+      "applicationUrl": "https://localhost:44378",
       "sslPort": 44378
     }
   },
+  "$schema": "http://json.schemastore.org/launchsettings.json",
   "profiles": {
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
       "launchUrl": "api/party",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "ConnectionString": "mongodb://PartyPlanner.DB:27017/",
+        "DatabaseName": "PartyPlanner",
+        "CollectionName": "Parties"
       }
     },
     "PartyPlanner": {
-      "commandName": "Project",
+      "commandName": "IISExpress",
       "launchBrowser": true,
       "launchUrl": "api/party",
-      "applicationUrl": "https://localhost:5001;http://localhost:5000",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "ConnectionString": "mongodb://PartyPlanner.DB:27017/",
+        "DatabaseName": "PartyPlanner",
+        "CollectionName": "Parties"
+      },
+      "applicationUrl": "https://localhost:5001;http://localhost:5000"
+    },
+    "Docker": {
+      "commandName": "Docker",
+      "launchBrowser": true,
+      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/api/party",
+      "publishAllPorts": true,
+      "useSSL": true,
+      "environmentVariables": {
+        "ConnectionString": "mongodb://PartyPlanner.DB:27017/",
+        "DatabaseName": "PartyPlanner",
+        "CollectionName": "Parties"
       }
     }
   }

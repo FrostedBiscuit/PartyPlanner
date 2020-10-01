@@ -1,0 +1,27 @@
+version: '3.1'
+
+services: 
+    rest:
+        container_name: PartyPlanner.Rest
+        image: partyplanner.rest
+        build: 
+            context: .
+            dockerfile: ./PartyPlanner.Rest/Dockerfile
+        environment: 
+            - ConnectionString=mongodb://PartyPlanner.DB:27017/
+            - DatabaseName=PartyPlanner
+            - CollectionName=Parties
+        ports:
+            - "80:80"
+            - "443:443"
+        depends_on: 
+            - db
+    db:
+        container_name: PartyPlanner.DB
+        image: mongo
+        ports: 
+            - "27017:27017"
+        restart: always
+        volumes: 
+            - D:/MongoDBData/data:/data/db
+    
