@@ -9,26 +9,26 @@ namespace PartyPlanner.Core.Managers
 {
     public class PartyManager : IPartyManager
     {
-        private IRepository<Party> _repository;
+        private IPartyRepository _repository;
 
-        public PartyManager(IRepository<Party> repository)
+        public PartyManager(IPartyRepository repository)
         {
             _repository = repository;
         }
 
-        public Task<Guid> CreateNewPartyAsync()
+        public Task<Party> CreateNewPartyAsync()
         {
             return CreateNewPartyAsync("");
         }
 
-        public async Task<Guid> CreateNewPartyAsync(string name)
+        public async Task<Party> CreateNewPartyAsync(string name)
         {
             var party = new Party();
             party.Info.Name = name;
 
             await _repository.InsertAsync(party);
 
-            return party.Id;
+            return party;
         }
 
         public Task<List<Party>> GetAllAsync()

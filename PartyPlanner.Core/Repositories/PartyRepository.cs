@@ -4,31 +4,33 @@ using System.Collections.Generic;
 using MongoDB.Driver;
 using PartyPlanner.Core.Dtos.Interfaces;
 using PartyPlanner.Core.Repositories.Interfaces;
+using PartyPlanner.Core.Dtos;
+using PartyPlanner.Core.Constants;
 
 namespace PartyPlanner.Core.Repositories
 {
-    public class Repository<TType> : IRepository<TType> where TType : IPartyPlannerObject
+    public class PartyRepository : IPartyRepository
     {
-        private IMongoCollection<TType> _collection;
+        private IMongoCollection<Party> _collection;
         
-        public Repository(IMongoCollection<TType> collection)
+        public PartyRepository(IMongoDatabase database)
         {
-            _collection = collection;
+            _collection = database.GetCollection<Party>(PartyPlannerConsts.PartyCollectionName);
         }
 
-        public Task<List<TType>> GetAllAsync()
+        public Task<List<Party>> GetAllAsync()
         {
             return _collection.Find(x => true).ToListAsync();
         }
 
-        public Task<TType> GetByIdAsync(Guid id)
+        public Task<Party> GetByIdAsync(Guid id)
         {
             return _collection.Find(x => x.Id == id).SingleAsync();
         }
 
-        public Task InsertAsync(TType item)
+        public Task InsertAsync(Party party)
         {
-            return _collection.InsertOneAsync(item);
+            return _collection.InsertOneAsync(party);
         }
 
         public Task RemoveAsync(Guid id)
@@ -36,7 +38,7 @@ namespace PartyPlanner.Core.Repositories
             return _collection.FindOneAndDeleteAsync(x => x.Id == id);
         }
 
-        public Task UpdateAsync(TType item)
+        public Task UpdateAsync(Party item)
         {
             return _collection.ReplaceOneAsync(x => x.Id == item.Id, item, options: new ReplaceOptions { IsUpsert = true });
         }

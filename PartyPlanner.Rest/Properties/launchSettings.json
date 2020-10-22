@@ -15,7 +15,7 @@
       "launchUrl": "api/party",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
-        "ConnectionString": "mongodb://PartyPlanner.DB:27017/",
+        "ConnectionString": "mongodb://localhost:27017/",
         "DatabaseName": "PartyPlanner",
         "CollectionName": "Parties"
       }
@@ -26,7 +26,7 @@
       "launchUrl": "api/party",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
-        "ConnectionString": "mongodb://PartyPlanner.DB:27017/",
+        "ConnectionString": "mongodb://localhost:27017/",
         "DatabaseName": "PartyPlanner",
         "CollectionName": "Parties"
       },

@@ -1,21 +1,19 @@
-﻿using MongoDB.Driver.Core.Operations;
-using PartyPlanner.Core.Dtos;
+﻿using PartyPlanner.Core.Dtos;
 using PartyPlanner.Core.Dtos.Views;
+using PartyPlanner.Core.Helpers;
 using PartyPlanner.Core.Managers.Interfaces;
 using PartyPlanner.Core.Repositories.Interfaces;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace PartyPlanner.Core.Managers
 {
     public class CategoryManager : ICategoryManager
     {
-        private IRepository<CategoryCollection> _repository;
+        private IPartyRepository _repository;
 
-        public CategoryManager(IRepository<CategoryCollection> repository)
+        public CategoryManager(IPartyRepository repository)
         {
             _repository = repository;
         }
@@ -27,15 +25,21 @@ namespace PartyPlanner.Core.Managers
             return collection.Categories.SingleOrDefault(c => c.CategoryId == categoryId);
         }
 
-        public Task<CategoryCollection> GetAll(Guid partyId)
+        public async Task<CategoryCollection> GetAll(Guid partyId)
         {
-            return _repository.GetByIdAsync(partyId);
+            var party = await _repository.GetByIdAsync(partyId);
+
+            return party.ToCategoryCollection();
         }
 
-        public async Task Insert(Guid partyId, Category category)
+        public async Task<bool> Insert(Guid partyId, Category category)
         {
-            var collection = await _repository.GetByIdAsync(partyId);
-            var categories = collection.Categories;
+            var party = await _repository.GetByIdAsync(partyId);
+
+            if (party == null)
+                return false;
+            
+            var categories = party.Categories ?? new Category[0];
 
             Array.Resize(ref categories, categories.Length + 1);
             
@@ -43,32 +47,43 @@ namespace PartyPlanner.Core.Managers
 
             categories[categories.Length - 1] = category;
 
-            collection.Categories = categories;
+            party.Categories = categories;
 
-            await _repository.UpdateAsync(collection);
+            await _repository.UpdateAsync(party);
+
+            return true;
         }
 
         public async Task<bool> Remove(Guid partyId, int categoryId)
         {
-            var collection = await _repository.GetByIdAsync(partyId);
-            var categories = collection.Categories;
+            var party = await _repository.GetByIdAsync(partyId);
+            var categories = party.Categories;
 
-            if (!categories.Select(c => c.CategoryId).Contains(categoryId))
+            if (!categories.Any(c => c.CategoryId == categoryId))
                 return false;
 
             var newCategories = from c in categories
                                 where c.CategoryId != categoryId
                                 select c;
 
-            collection.Categories = newCategories.ToArray();
-            await _repository.InsertAsync(collection);
+            party.Categories = newCategories.ToArray();
+            await _repository.UpdateAsync(party);
 
             return true;
         }
 
-        public Task Set(Guid partyId, Category category)
+        public async Task<bool> Update(Guid partyId, Category category)
         {
-            throw new NotImplementedException();
+            var party = await _repository.GetByIdAsync(partyId);
+
+            if (!party.Categories.Contains(category))
+                return false;
+
+            party.Categories[category.CategoryId].Update(category);
+
+            await _repository.UpdateAsync(party);
+
+            return true;
         }
     }
 }

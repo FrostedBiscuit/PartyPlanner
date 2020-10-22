@@ -1,12 +1,11 @@
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
 using MongoDB.Driver;
 using PartyPlanner.Core.Constants;
-using PartyPlanner.Core.Dtos;
-using PartyPlanner.Core.Dtos.Views;
 using PartyPlanner.Core.Managers;
 using PartyPlanner.Core.Managers.Interfaces;
 using PartyPlanner.Core.Repositories;
@@ -24,7 +23,6 @@ namespace PartyPlanner
         public IConfiguration Configuration { get; }
 
         private IMongoClient _client;
-        private IMongoDatabase _database;
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -32,17 +30,29 @@ namespace PartyPlanner
             PartyPlannerConsts.Init();
 
             _client = new MongoClient(PartyPlannerConsts.DBConnectionString);
-            _database = _client.GetDatabase(PartyPlannerConsts.PartyPlannerDatabaseName);
 
-            services.AddSingleton<IRepository<Party>, Repository<Party>>(sp => new Repository<Party>(_database.GetCollection<Party>(PartyPlannerConsts.PartyCollectionName)));
-            services.AddSingleton<IRepository<PartyInfoView>, Repository<PartyInfoView>>(sp => new Repository<PartyInfoView>(_database.GetCollection<PartyInfoView>(PartyPlannerConsts.PartyCollectionName)));
-            services.AddSingleton<IRepository<CategoryCollection>, Repository<CategoryCollection>>(sp => new Repository<CategoryCollection>(_database.GetCollection<CategoryCollection>(PartyPlannerConsts.PartyCollectionName)));
-            services.AddSingleton<IRepository<GuestList>, Repository<GuestList>>(sp => new Repository<GuestList>(_database.GetCollection<GuestList>(PartyPlannerConsts.PartyCollectionName)));
+            services.AddSingleton<IPartyRepository, PartyRepository>(sp => new PartyRepository(_client.GetDatabase(PartyPlannerConsts.PartyPlannerDatabaseName)));
 
             services.AddScoped<IPartyManager, PartyManager>();
+            services.AddScoped<IPartyInfoManager, PartyInfoManager>();
             services.AddScoped<ICategoryManager, CategoryManager>();
+            services.AddScoped<IGuestManager, GuestManager>();
 
             services.AddControllers();
+
+            services.AddSwaggerGen(c => 
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Version = "v1",
+                    Title = "PartyPlanner API",
+                    Description = "An API meant for easily planning parties.",
+                    Contact = new OpenApiContact
+                    {
+                        Name = "FrostedBiscuit"
+                    }
+                });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -52,6 +62,14 @@ namespace PartyPlanner
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseSwagger();
+
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("swagger/v1/swagger.json", "PartyPlanner API");
+                c.RoutePrefix = string.Empty;
+            });
 
             app.UseHttpsRedirection();
 

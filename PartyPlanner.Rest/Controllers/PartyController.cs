@@ -2,7 +2,6 @@
 using PartyPlanner.Core.Dtos;
 using PartyPlanner.Core.Managers.Interfaces;
 using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace PartyPlanner.Controllers
@@ -19,19 +18,29 @@ namespace PartyPlanner.Controllers
         }
 
         [HttpGet]
-        public async Task<List<Party>> GetAsync()
+        public async Task<IActionResult> GetAsync()
         {
-            return await _manager.GetAllAsync();
+            var parties = await _manager.GetAllAsync();
+
+            if (parties == null)
+                return NotFound();
+
+            return Ok(parties);
         }
 
         [HttpGet("{id}")]
-        public async Task<Party> GetByIdAsync(Guid id)
+        public async Task<IActionResult> GetByIdAsync(Guid id)
         {
-            return await _manager.GetPartyByIdAsync(id);
+            var party = await _manager.GetPartyByIdAsync(id);
+
+            if (party == null)
+                return NotFound();
+
+            return Ok(party);
         }
 
         [HttpPut]
-        public async Task<Guid> CreateNewPartyAsync([FromQuery]string name)
+        public async Task<Party> CreateNewPartyAsync([FromQuery]string name)
         {
             return await _manager.CreateNewPartyAsync(name);
         }

@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using PartyPlanner.Core.Dtos;
-using PartyPlanner.Core.Dtos.Views;
 using PartyPlanner.Core.Managers.Interfaces;
 
 namespace PartyPlanner.Rest.Controllers
@@ -22,27 +18,47 @@ namespace PartyPlanner.Rest.Controllers
         }
 
         [HttpGet("{partyId}")]
-        public async Task<CategoryCollection> GetAllByPartyIdAsync(Guid partyId)
+        public async Task<IActionResult> GetAllByPartyIdAsync(Guid partyId)
         {
-            return await _manager.GetAll(partyId);
+            var categories = await _manager.GetAll(partyId);
+
+            if (categories == null)
+                return NotFound();
+
+            return Ok(categories);
         }
 
         [HttpGet("{partyId}/{categoryId}")]
-        public async Task<Category> GetByCateoryIdAsync(Guid partyId, int categoryId)
+        public async Task<IActionResult> GetByCateoryIdAsync(Guid partyId, int categoryId)
         {
-            return await _manager.Get(partyId, categoryId);
+            var result = await _manager.Get(partyId, categoryId);
+
+            if (result == null)
+                return NotFound();
+
+            return Ok(result);
         }
 
         [HttpPost("{partyId}")]
-        public async Task Set(Guid partyId, [FromBody] Category category)
+        public async Task<IActionResult> Update(Guid partyId, [FromBody] Category category)
         {
-            await _manager.Set(partyId, category);
+            var success = await _manager.Update(partyId, category);
+
+            if (success)
+                return Ok();
+
+            return BadRequest();
         }
 
         [HttpPut("{partyId}")]
-        public async Task Insert(Guid partyId, [FromBody] Category category)
+        public async Task<IActionResult> Insert(Guid partyId, [FromBody] Category category)
         {
-            await _manager.Insert(partyId, category);
+            var success = await _manager.Insert(partyId, category);
+
+            if (success)
+                return Ok();
+
+            return BadRequest();
         }
 
         [HttpDelete("{partyId}/{categoryId}")]
@@ -53,7 +69,7 @@ namespace PartyPlanner.Rest.Controllers
             if (result)
                 return Ok();
 
-            return NotFound();
+            return BadRequest();
         }
     }
 }

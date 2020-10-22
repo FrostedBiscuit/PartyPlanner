@@ -7,8 +7,8 @@ namespace PartyPlanner.Core.Managers.Interfaces
 {
     public interface IPartyManager
     {
-        Task<Guid> CreateNewPartyAsync();
-        Task<Guid> CreateNewPartyAsync(string name);
+        Task<Party> CreateNewPartyAsync();
+        Task<Party> CreateNewPartyAsync(string name);
         Task<List<Party>> GetAllAsync();
         Task<Party> GetPartyByIdAsync(Guid id);
     }

@@ -23,5 +23,5 @@ services:
             - "27017:27017"
         restart: always
         volumes: 
-            - D:/MongoDBData/data:/data/db
+            - ./PartyPlanner.Database:/data/db
     

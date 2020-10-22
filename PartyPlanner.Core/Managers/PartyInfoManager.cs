@@ -9,30 +9,32 @@ namespace PartyPlanner.Core.Managers
 {
     public class PartyInfoManager : IPartyInfoManager
     {
-        private IRepository<PartyInfoView> _repository;
+        private IPartyRepository _repository;
 
-        public PartyInfoManager(IRepository<PartyInfoView> repository)
+        public PartyInfoManager(IPartyRepository repository)
         {
             _repository = repository;
         }
 
         public async Task<PartyInfo> GetById(Guid partyId)
         {
-            var view = await _repository.GetByIdAsync(partyId);
-            var result = new PartyInfo
-            {
-                Name = view.Info.Name,
-                Description = view.Info.Description,
-                Budget = view.Info.Budget,
-                PartyDate = view.Info.PartyDate
-            };
+            var party = await _repository.GetByIdAsync(partyId);
 
-            return result;
+            return party.Info;
         }
 
-        public Task Set(PartyInfoView info)
+        public async Task<bool> Set(PartyInfoView info)
         {
-            return _repository.UpdateAsync(info);
+            var party = await _repository.GetByIdAsync(info.Id);
+
+            if (party == null)
+                return false;
+
+            party.Info.Update(info.Info);
+
+            await _repository.UpdateAsync(party);
+
+            return true;
         }
     }
 }
