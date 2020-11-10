@@ -12,7 +12,7 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "api/party",
+      "launchUrl": "docs",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
         "ConnectionString": "mongodb://localhost:27017/",
@@ -35,7 +35,7 @@
     "Docker": {
       "commandName": "Docker",
       "launchBrowser": true,
-      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/api/party",
+      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}docs",
       "publishAllPorts": true,
       "useSSL": true,
       "environmentVariables": {

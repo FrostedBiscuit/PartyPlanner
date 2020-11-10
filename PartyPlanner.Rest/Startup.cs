@@ -63,12 +63,19 @@ namespace PartyPlanner
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseSwagger();
+            app.UseStaticFiles();
+
+            app.UseSwagger(c =>
+            {
+                c.RouteTemplate = "docs/{documentName}/swagger.json";
+            });
 
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("swagger/v1/swagger.json", "PartyPlanner API");
-                c.RoutePrefix = string.Empty;
+                c.SwaggerEndpoint("v1/swagger.json", "PartyPlanner API");
+                c.RoutePrefix = "docs";
+
+                c.InjectStylesheet(@"/Docs/css/custom.css");
             });
 
             app.UseHttpsRedirection();

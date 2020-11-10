@@ -11,12 +11,19 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="4.1.1" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.9" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\PartyPlanner.Core\PartyPlanner.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\Docs\favicon-16x16.png" />
+    <None Include="wwwroot\Docs\favicon-32x32.png" />
+    <None Include="wwwroot\Docs\favicon.ico" />
   </ItemGroup>
 
 

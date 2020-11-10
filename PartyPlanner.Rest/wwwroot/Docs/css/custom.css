@@ -1,0 +1,150 @@
+/* WARNING - Horrendus CSS ahead */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    background-color: transparent;
+}
+
+body {
+    background-color: #303138 !important;
+}
+
+code {
+    background-color: transparent !important;
+}
+
+code span {
+    background-color: transparent !important;
+}
+
+.body-param__text {
+    color: white !important;
+    background-color: #333 !important;
+}
+
+.responses-inner h4 {
+    color: snow !important;
+}
+
+.title span {
+    display: none;
+}
+
+.topbar {
+    display: none;
+}
+
+.main .title {
+    color: snow !important;
+    font-weight: 800 !important;
+}
+
+.description .renderedMarkdown p {
+    color: snow !important;
+}
+
+.nostyle {
+    color: snow !important;
+}
+
+.swagger-ui .opblock .opblock-section-header {
+    background-color: transparent;
+}
+
+.opblock-title span {
+    color: snow !important;
+}
+
+.opblock-section-header h4 {
+    color: snow !important;
+}
+
+.col_header {
+    color: snow !important;
+}
+
+.parameter__name {
+    color: snow !important;
+}
+
+.swagger-ui .parameter__name.required:after {
+    color: #ff6767 !important;
+}
+
+.swagger-ui .parameter__name.required span {
+    color: #ff6767 !important;
+}
+
+.parameter__type {
+    color: #7682a3 !important;
+}
+
+.tablinks {
+    color: snow !important;
+}
+
+.response-col_status {
+    color: snow !important;
+}
+
+.response-col_description h5 {
+    color: snow !important;
+}
+
+.response-col_description__inner .renderedMarkdown p {
+    color: snow !important;
+}
+
+.response-col_links i {
+    color: snow !important;
+}
+
+.try-out__btn {
+    color: snow !important;
+}
+
+.opblock-description-wrapper p {
+    color: #a0a0a0 !important;
+}
+
+.models h4 span {
+    color: snow !important;
+}
+
+.model-title {
+    color: snow !important;
+}
+
+.model span .inner-object .model tbody tr td {
+    color: #ccc !important;
+}
+
+.swagger-ui .prop-type {
+    color: #b48ed4 !important;
+}
+
+.swagger-ui .prop-format {
+    color: #aaa !important;
+}
+
+.swagger-ui .model-title span {
+    background-color: transparent !important;
+}
+
+.swagger-ui .info .title {
+    color: snow !important;
+    display: flex;
+}
+
+.swagger-ui .btn {
+    color: snow !important;
+}
+
+.swagger-ui .errors-wrapper * {
+    color: snow !important;
+}
+
+.swagger-ui {
+    color: white !important;
+}
