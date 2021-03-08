@@ -17,7 +17,8 @@
         "ASPNETCORE_ENVIRONMENT": "Development",
         "ConnectionString": "mongodb://localhost:27017/",
         "DatabaseName": "PartyPlanner",
-        "CollectionName": "Parties"
+        "CollectionName": "Parties",
+        "LogFilePath": "./logs"
       }
     },
     "PartyPlanner": {
@@ -28,7 +29,8 @@
         "ASPNETCORE_ENVIRONMENT": "Development",
         "ConnectionString": "mongodb://localhost:27017/",
         "DatabaseName": "PartyPlanner",
-        "CollectionName": "Parties"
+        "CollectionName": "Parties",
+        "LogFilePath": "./logs"
       },
       "applicationUrl": "https://localhost:5001;http://localhost:5000"
     },
@@ -41,7 +43,8 @@
       "environmentVariables": {
         "ConnectionString": "mongodb://PartyPlanner.DB:27017/",
         "DatabaseName": "PartyPlanner",
-        "CollectionName": "Parties"
+        "CollectionName": "Parties",
+        "LogFilePath": "./logs"
       }
     }
   }

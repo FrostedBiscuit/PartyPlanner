@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using MongoDB.Driver;
+using Serilog;
 using PartyPlanner.Core.Constants;
 using PartyPlanner.Core.Managers;
 using PartyPlanner.Core.Managers.Interfaces;
@@ -27,8 +28,6 @@ namespace PartyPlanner
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            PartyPlannerConsts.Init();
-
             _client = new MongoClient(PartyPlannerConsts.DBConnectionString);
 
             services.AddSingleton<IPartyRepository, PartyRepository>(sp => new PartyRepository(_client.GetDatabase(PartyPlannerConsts.PartyPlannerDatabaseName)));
@@ -83,6 +82,8 @@ namespace PartyPlanner
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseSerilogRequestLogging();
 
             app.UseEndpoints(endpoints =>
             {

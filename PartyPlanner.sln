@@ -11,6 +11,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PartyPlanner.Core", "PartyP
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PartyPlanner.Core", "PartyPlanner.Core\PartyPlanner.Core.csproj", "{9EA2DC0B-9DB1-4C65-8E96-5B8A8AAFFF32}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PartyPlanner.UnitTesting", "PartyPlanner.UnitTesting\PartyPlanner.UnitTesting.csproj", "{9A299FA4-3C79-494B-A32D-3EFA9C62D211}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,10 @@ Global
 		{9EA2DC0B-9DB1-4C65-8E96-5B8A8AAFFF32}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9EA2DC0B-9DB1-4C65-8E96-5B8A8AAFFF32}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9EA2DC0B-9DB1-4C65-8E96-5B8A8AAFFF32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A299FA4-3C79-494B-A32D-3EFA9C62D211}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A299FA4-3C79-494B-A32D-3EFA9C62D211}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A299FA4-3C79-494B-A32D-3EFA9C62D211}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A299FA4-3C79-494B-A32D-3EFA9C62D211}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

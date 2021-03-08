@@ -2,7 +2,6 @@
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using MongoDB.Driver;
-using PartyPlanner.Core.Dtos.Interfaces;
 using PartyPlanner.Core.Repositories.Interfaces;
 using PartyPlanner.Core.Dtos;
 using PartyPlanner.Core.Constants;
@@ -23,9 +22,16 @@ namespace PartyPlanner.Core.Repositories
             return _collection.Find(x => true).ToListAsync();
         }
 
-        public Task<Party> GetByIdAsync(Guid id)
+        public async Task<Party> GetByIdAsync(Guid id)
         {
-            return _collection.Find(x => x.Id == id).SingleAsync();
+            var result = _collection.Find(x => x.Id == id);
+
+            if (await result.CountDocumentsAsync() == 0)
+            {
+                return null;
+            }
+
+            return await result.SingleAsync();
         }
 
         public Task InsertAsync(Party party)

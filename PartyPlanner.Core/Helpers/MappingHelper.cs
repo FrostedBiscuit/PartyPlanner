@@ -1,5 +1,7 @@
 ﻿using PartyPlanner.Core.Dtos;
 using PartyPlanner.Core.Dtos.Views;
+using System;
+using System.Linq;
 
 namespace PartyPlanner.Core.Helpers
 {
@@ -7,6 +9,11 @@ namespace PartyPlanner.Core.Helpers
     {
         public static CategoryCollection ToCategoryCollection(this Party party)
         {
+            if (party == null)
+            {
+                return null;
+            }
+
             return new CategoryCollection
             {
                 Id = party.Id,
