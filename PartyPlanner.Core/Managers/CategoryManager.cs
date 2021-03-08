@@ -75,11 +75,12 @@ namespace PartyPlanner.Core.Managers
         public async Task<bool> Update(Guid partyId, Category category)
         {
             var party = await _repository.GetByIdAsync(partyId);
+            var categoryId = party.Categories.IndexOfCategory(category);
 
-            if (!party.Categories.Contains(category))
+            if (categoryId == -1)
                 return false;
 
-            party.Categories[category.CategoryId].Update(category);
+            party.Categories[categoryId].Update(category);
 
             await _repository.UpdateAsync(party);
 

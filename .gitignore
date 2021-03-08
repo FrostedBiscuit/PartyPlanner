@@ -361,3 +361,6 @@ MigrationBackup/
 
 # Ignore database data
 PartyPlanner.Database/
+
+# Ignore logs
+PartyPlanner.Logs/

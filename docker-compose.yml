@@ -11,9 +11,12 @@ services:
             - ConnectionString=mongodb://PartyPlanner.DB:27017/
             - DatabaseName=PartyPlanner
             - CollectionName=Parties
+            - LogFilePath=./logs/rest.log
         ports:
             - "80:80"
             - "443:443"
+        volumes: 
+            - ./PartyPlanner.Logs/Rest:/app/logs
         depends_on: 
             - db
     db:
