@@ -409,3 +409,4 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+PartyPlanner.Web/package-lock.json
