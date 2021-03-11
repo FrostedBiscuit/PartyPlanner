@@ -32,12 +32,12 @@ namespace PartyPlanner.Core.Managers
             return party.ToGuestList();
         }
 
-        public async Task<bool> Insert(Guid partyId, Guest guest)
+        public async Task<Guest> Insert(Guid partyId, Guest guest)
         {
             var party = await _repository.GetByIdAsync(partyId);
 
             if (party == null)
-                return false;
+                return null;
 
             var guests = party.Guests;
 
@@ -51,7 +51,7 @@ namespace PartyPlanner.Core.Managers
 
             await _repository.UpdateAsync(party);
 
-            return true;
+            return guest;
         }
 
         public async Task<bool> Remove(Guid partyId, int guestId)

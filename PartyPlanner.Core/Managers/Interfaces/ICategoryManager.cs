@@ -10,7 +10,7 @@ namespace PartyPlanner.Core.Managers.Interfaces
         Task<CategoryCollection> GetAll(Guid partyId);
         Task<Category> Get(Guid partyId, int categoryId);
         Task<bool> Update(Guid partyId, Category category);
-        Task<bool> Insert(Guid partyId, Category category);
+        Task<Category> Insert(Guid partyId, Category category);
         Task<bool> Remove(Guid partyId, int categoryId);
     }
 }

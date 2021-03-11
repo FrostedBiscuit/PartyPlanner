@@ -53,10 +53,10 @@ namespace PartyPlanner.Rest.Controllers
         [HttpPut("{partyId}")]
         public async Task<IActionResult> Insert(Guid partyId, [FromBody] Guest guest)
         {
-            var success = await _manager.Insert(partyId, guest);
+            var result = await _manager.Insert(partyId, guest);
 
-            if (success)
-                return Ok();
+            if (result != null)
+                return Ok(result);
 
             return BadRequest();
         }
