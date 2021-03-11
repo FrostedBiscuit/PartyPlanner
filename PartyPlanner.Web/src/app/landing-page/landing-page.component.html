@@ -1,0 +1,31 @@
+<div style="text-align: center; margin-top: 30%;" *ngIf="visible">
+    <img id="logoimage" src="../../assets/images/PP_logo.svg" >
+    <div style="position: fixed; bottom: 0px; width: 100%;">
+        <p style="margin: 0 auto;">by CoffeeGrainStudio</p>
+    </div>
+</div>
+
+  
+
+<div class="content" *ngIf="!visible" (click)="party()">
+    <img src="../../assets/images/Beer.svg">
+    <h1>PARTY</h1>
+    <p> Invite friends, choose the drinks,</p>
+    <p> determine the location,</p>
+    <p> and in the end you get,</p>
+    <p>how much each person pays.</p>
+</div>
+<div class="content" *ngIf="!visible" (click)="budget()">
+    <img src="../../assets/images/Coin.svg">
+    <h1>BUDGET</h1>
+    <p>Determine how much money</p>
+    <p>you have, then choose</p>
+    <p>the drinks, location, and so on.</p>
+</div> 
+
+
+
+        
+       
+   
+

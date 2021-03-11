@@ -1,0 +1,15 @@
+<div class="content">
+    <h2 style="float: left;">{{name}}</h2>
+    <!-- <h2 style="float: right;">14€</h2> -->
+    <p style="float: right;">€</p>
+    <input style="float: right; margin-top: 15px; width:60px; height:5px;" type="number" placeholder="0.00" value={{price}}>
+    <br style="clear:both;">
+    <p > {{text}}</p>
+    <div class="box" style="float: left;">
+        <img class="child" src="../../assets/images/Minus.svg" alt="Minus" width="50px" (click)="quantityDown()">
+        <p class="child">{{ quantity }}</p>
+        <img class="child" src="../../assets/images/Plus.svg" alt="Plus" width="50px" (click)="quantityUp()">
+    </div>
+    <div class="btnMedium" style="float: right;"> ADD TO CART</div>
+    <br style="clear:both">
+</div>

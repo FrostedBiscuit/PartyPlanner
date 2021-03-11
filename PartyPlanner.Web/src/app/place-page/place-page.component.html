@@ -1,0 +1,27 @@
+<div class="content" style="text-align: center; padding-bottom: 30px;"> 
+      
+    <p>Party name</p>
+    <input #name type="text" placeholder="Party name" value="{{ partyInfo.name }}">
+
+    <p>Location</p>
+    <input #location type="text" placeholder="Location" value="{{ partyInfo.description }}">
+
+    <p>Date and Time</p>
+    <input #date type="datetime-local" value="{{ partyDateStr }}">
+
+    <p>Budget</p>
+    <input #budget type="text" placeholder="Budget" value="{{ partyInfo.budget }}">
+
+    <div class="btnSmall" (click)="createPartyInfo(name.value,location.value,date.value,budget.value)">
+        <p>Save</p>
+    </div>
+</div>
+
+<div class="footer">
+    <div class="btnSmall" style="float:left; margin-right: 40px;" (click)="party()">
+        <p><</p>
+    </div>
+    <div class="btnBig" style="float:right;">
+        <p>PLACE DETAILS</p>
+    </div>
+</div>
