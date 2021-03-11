@@ -10,7 +10,7 @@ namespace PartyPlanner.Core.Managers.Interfaces
         Task<GuestList> GetAll(Guid partyId);
         Task<Guest> Get(Guid partyId, int guestId);
         Task<bool> SetGuest(Guid partyId, Guest guest);
-        Task<bool> Insert(Guid partyId, Guest guest);
+        Task<Guest> Insert(Guid partyId, Guest guest);
         Task<bool> Remove(Guid partyId, int guestId);
     }
 }

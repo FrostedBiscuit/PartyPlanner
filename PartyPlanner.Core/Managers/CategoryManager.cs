@@ -32,12 +32,12 @@ namespace PartyPlanner.Core.Managers
             return party.ToCategoryCollection();
         }
 
-        public async Task<bool> Insert(Guid partyId, Category category)
+        public async Task<Category> Insert(Guid partyId, Category category)
         {
             var party = await _repository.GetByIdAsync(partyId);
 
             if (party == null)
-                return false;
+                return null;
             
             var categories = party.Categories ?? new Category[0];
 
@@ -51,7 +51,7 @@ namespace PartyPlanner.Core.Managers
 
             await _repository.UpdateAsync(party);
 
-            return true;
+            return category;
         }
 
         public async Task<bool> Remove(Guid partyId, int categoryId)
