@@ -1,0 +1,27 @@
+<div class="container">
+    <!-- Pokaže se samo ena ta slika glede na spremenljivko host -->
+    <img *ngIf="host" class="child icon" src="../../assets/images/Party_yes.svg" alt="party hat on" (click)="toggleHost()">
+    <img *ngIf="!host"  class="child icon" src="../../assets/images/Party_no.svg" alt="party hat off"(click)="toggleHost()"> 
+    
+    <h2 class="child">{{ name }}</h2>
+
+    
+    <div class="btnSmall" style="float:right; margin-top:25px;" (click)="deleteGuest()">
+        <p>X</p>
+    </div>
+    
+    <!-- Pokaže se samo ena ta slika glede na spremenljivko paid -->
+    <div *ngIf="paid" class="btnSmall" style="float:right; margin-top:25px; background-color: greenyellow;" (click)="togglePaid()">
+        <p style="background-color: greenyellow; color:black;">Paid</p>
+    </div>
+    <div *ngIf="!paid" class="btnSmall" style="float:right; margin-top:25px;" (click)="togglePaid()">
+        <p>Paid</p>
+    </div>
+    
+    <!-- Pokaže se samo ena ta slika glede na spremenljivko host -->
+    <img *ngIf="meat" class="child icon" style="float:right; margin-top: 20px; margin-right: 5px;" src="../../assets/images/Meat_yes.svg" alt="meat eater" (click)="toggleMeat()">
+    <img *ngIf="!meat" class="child icon" style="float:right; margin-top: 20px; margin-right: 5px;" src="../../assets/images/Meat_no.svg" alt="non meat eater" (click)="toggleMeat()">
+    <br>
+    
+</div>
+
