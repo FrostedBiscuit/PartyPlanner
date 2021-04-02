@@ -39,7 +39,7 @@ namespace PartyPlanner.Controllers
             return Ok(party);
         }
 
-        [HttpPut]
+        [HttpPost]
         public async Task<Party> CreateNewPartyAsync([FromQuery]string name)
         {
             return await _manager.CreateNewPartyAsync(name);

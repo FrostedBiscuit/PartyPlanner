@@ -39,7 +39,7 @@ namespace PartyPlanner.Rest.Controllers
             return Ok(result);
         }
 
-        [HttpPost("{partyId}")]
+        [HttpPut("{partyId}")]
         public async Task<IActionResult> Update(Guid partyId, [FromBody] Category category)
         {
             var success = await _manager.Update(partyId, category);
@@ -50,7 +50,7 @@ namespace PartyPlanner.Rest.Controllers
             return BadRequest();
         }
 
-        [HttpPut("{partyId}")]
+        [HttpPost("{partyId}")]
         public async Task<IActionResult> Insert(Guid partyId, [FromBody] Category category)
         {
             var result = await _manager.Insert(partyId, category);
