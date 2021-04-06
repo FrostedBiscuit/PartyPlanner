@@ -36,6 +36,7 @@ export class PartyPageComponent implements OnInit {
     this._ppRest.putParty(partyName).subscribe((result: Party)=>{
       this.partyId=result.id;
       localStorage.setItem('partyId', result.id);
+      console.log(result);
       this.validPartyId=true;
       
     })
