@@ -14,7 +14,7 @@ export class ShoppingListPageComponent implements OnInit {
   }
 
   back(){
-    this.router.navigate(['items'])
+    this.router.navigate(['/categoryList'])
   }
 
 }

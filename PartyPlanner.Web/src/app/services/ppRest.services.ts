@@ -2,8 +2,8 @@ import { GlobalConstants } from '../GlobalConstants';
 
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
-import {HttpClient,HttpHeaders} from '@angular/common/http'
-import { Info,Guest,Category,Item } from '../party';
+import {HttpClient,HttpHeaders, HttpParams} from '@angular/common/http'
+import { Info,Guest,Category,Item, Party } from '../party';
 
 
 
@@ -13,14 +13,18 @@ export class ppRestService
     headers = new HttpHeaders().set('Content-Type', 'application/json');
     
     constructor(private httpClient: HttpClient){}   
+
     ///PARTY
     getParty(){
         return this.httpClient.get("/api/party") 
     }
 
-    putParty(name: String){
-        let body = { name: name };
-        return this.httpClient.put("/api/party",body);
+    putParty(name: string){  
+        
+        const params = new HttpParams()
+            .set('name',name);
+
+        return this.httpClient.put("/api/party?name="+name, params);
     }
     
     ///PARTY DETAILS
@@ -49,10 +53,11 @@ export class ppRestService
 
     ///CATEGORY
     putCategory(partyId: String,category:Category){
-        return this.httpClient.put("/api/Category/"+partyId,category,{ headers: this.headers})
+        return this.httpClient.put("/api/Category/"+partyId,category,{ headers: this.headers});
     }
     postCategory(partyId: String,category:Category){
-        return this.httpClient.post("/api/Category/"+partyId,category,{ headers: this.headers})
+        console.log(category)
+        return this.httpClient.post("/api/Category/"+partyId,category,{ headers: this.headers});
     }
 
     getCategoryList(partyId: String){

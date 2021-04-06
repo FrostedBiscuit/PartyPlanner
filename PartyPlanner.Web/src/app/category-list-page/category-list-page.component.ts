@@ -27,15 +27,21 @@ export class CategoryListPageComponent implements OnInit {
   }
 
   createCategory(categoryName: String){
+    
+    this.addNewVisible=!this.addNewVisible;
+
     let category= new Category;
     category.name=categoryName;
+    category.items=[];
     this._ppRest.putCategory(this.partyId,category).subscribe(
-      data => {
-        this.categoryList.push(category);//ni glih dobr zato ker nima ID-ja in ce hocs brisat al karkol je pizdarja
-      },
-      error => {
-        console.log('error');
-      }); 
+      (data:Category) => {
+       if(data != null || data != undefined){
+         this.categoryList.push(data);
+       }
+     },
+     error => {
+       console.log(error);
+     });
   }
 
   addCategory(){

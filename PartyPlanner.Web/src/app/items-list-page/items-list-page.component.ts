@@ -26,34 +26,32 @@ export class ItemsListPageComponent implements OnInit {
         
     this._ppRest.getCategoryById(this.partyId,this.categoryId).subscribe((result:Category)=>{
       this.category=result;
+      this.itemList=result.items;
     });
   }
 
   ngOnInit(): void {
   }
  
-  createItem(name:String,description:String,price:number){
+  createItem(name:String,description:String,price:string){
     
     let item = new Item;   
-    //item.itemId = this.itemList.length;
     item.name=name;
     item.description=description;
-    item.price=price;
+    item.price=Number.parseFloat(price);
     item.quantity=this.addNewQuantity;
     this.itemList.push(item);
 
     this.category.items=this.itemList;
-    
+ 
     this._ppRest.postCategory(this.partyId,this.category).subscribe(
       data => {
-        //this.reloadCurrentRoute()
-        console.log("dela baje");
+        console.log(data);
       },
       error => {
-        console.log('error');
+        console.log(error);
     });
 
-    
     
   }
 
@@ -77,5 +75,24 @@ export class ItemsListPageComponent implements OnInit {
   party(){
     this.router.navigate(['/categoryList']);
   }
+  
+  deleteItem(item:Item){
+    this.itemList=this.delete(this.itemList,item);
+    this.category.items=this.itemList;
+    this._ppRest.postCategory(this.partyId,this.category).subscribe(
+      data => {
+        console.log(data);
+      },
+      error => {
+        console.log(error);
+    });
+  }
 
+  delete(array,item){
+    const index = array.indexOf(item, 0);
+    if (index > -1) {
+      array.splice(index, 1);
+    }
+    return array;
+  }
 }

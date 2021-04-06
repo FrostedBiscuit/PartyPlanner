@@ -29,20 +29,33 @@ export class GuestListPageComponent implements OnInit {
   }
 
   postGuest(name:String){
+    if(name==""){
+      alert("name is empty");
+      return;
+    }
+
     let guest= new Guest;
-    //guest.guestId=0;
+    
     guest.name=name;
     //guest.surname="Kovic";
     //guest.email="blazCar@gmail.com";
     guest.nonDrinker=this.host;
     //guest.phone="030444555";
-    guest.vegan=this.meat;
-    guest.vegetarian=this.paid;
+    guest.vegan=this.paid;
+    guest.vegetarian=this.meat;
     console.log(guest);
     this._ppRest.postGuest(this.partyId,guest).subscribe(
-      data => {
-        //this.reloadCurrentRoute()
-        this.guestList.push(guest)
+      (data: Guest) => {
+        
+
+        this.guestList.push(data);
+
+        //reset datafields
+        this.host = false;
+        this.meat = false;
+        this.paid = false;
+        this.addNewVisible = !this.addNewVisible!;
+
       },
       error => {
         console.log('error');
