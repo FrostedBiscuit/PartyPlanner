@@ -49,10 +49,11 @@ export class ppRestService
 
     ///CATEGORY
     putCategory(partyId: String,category:Category){
-        return this.httpClient.put("/api/Category/"+partyId,category,{ headers: this.headers})
+        return this.httpClient.put("/api/Category/"+partyId,category,{ headers: this.headers});
     }
     postCategory(partyId: String,category:Category){
-        return this.httpClient.post("/api/Category/"+partyId,category,{ headers: this.headers})
+        console.log(category)
+        return this.httpClient.post("/api/Category/"+partyId,category,{ headers: this.headers});
     }
 
     getCategoryList(partyId: String){

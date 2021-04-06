@@ -36,13 +36,13 @@ export class GuestListPageComponent implements OnInit {
     //guest.email="blazCar@gmail.com";
     guest.nonDrinker=this.host;
     //guest.phone="030444555";
-    guest.vegan=this.meat;
-    guest.vegetarian=this.paid;
+    guest.vegan=this.paid;
+    guest.vegetarian=this.meat;
     console.log(guest);
     this._ppRest.postGuest(this.partyId,guest).subscribe(
-      data => {
+      (data: Guest) => {
         //this.reloadCurrentRoute()
-        this.guestList.push(guest)
+        this.guestList.push(data)
       },
       error => {
         console.log('error');
