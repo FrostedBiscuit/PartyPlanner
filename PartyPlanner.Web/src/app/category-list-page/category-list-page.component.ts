@@ -27,6 +27,9 @@ export class CategoryListPageComponent implements OnInit {
   }
 
   createCategory(categoryName: String){
+    
+    this.addNewVisible=!this.addNewVisible;
+
     let category= new Category;
     category.name=categoryName;
     category.items=[];

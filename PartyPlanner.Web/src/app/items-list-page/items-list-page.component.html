@@ -18,7 +18,7 @@
             <p class="child">{{ addNewQuantity }}</p>
             <img class="child" src="../../assets/images/Plus.svg" alt="Plus" width="50px" (click)="quantityUp()">
         </div>
-        <div class="btnMedium" style="float: right;  margin-top:10px;" (click)="createItem(name.value,description.value,price.value)"> ADD TO LIST</div>
+        <div class="btnMedium" style="float: right;  margin-top:10px;" (click)="createItem(name.value,description.value,price.value);name.value='';description.value='';price.value='0.00'"> ADD TO LIST</div>
         
         <br style="clear:both">
     </div>

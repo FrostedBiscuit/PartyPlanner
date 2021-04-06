@@ -29,8 +29,13 @@ export class GuestListPageComponent implements OnInit {
   }
 
   postGuest(name:String){
+    if(name==""){
+      alert("name is empty");
+      return;
+    }
+
     let guest= new Guest;
-    //guest.guestId=0;
+    
     guest.name=name;
     //guest.surname="Kovic";
     //guest.email="blazCar@gmail.com";
@@ -41,8 +46,16 @@ export class GuestListPageComponent implements OnInit {
     console.log(guest);
     this._ppRest.postGuest(this.partyId,guest).subscribe(
       (data: Guest) => {
-        //this.reloadCurrentRoute()
-        this.guestList.push(data)
+        
+
+        this.guestList.push(data);
+
+        //reset datafields
+        this.host = false;
+        this.meat = false;
+        this.paid = false;
+        this.addNewVisible = !this.addNewVisible!;
+
       },
       error => {
         console.log('error');
