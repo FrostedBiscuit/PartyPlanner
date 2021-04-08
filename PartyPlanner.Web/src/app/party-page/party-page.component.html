@@ -5,32 +5,23 @@
   
     <div class="btnSmall" (click)="createParty(partyName.value)">Save</div>
 </div>
-<div *ngIf="validPartyId" class="content">
-   <div style="width: 100%;">
-        <img src="../../assets/images/Pin.svg" width="70px" height="70px" style="float:right;">      
-        <h2>PLACE</h2>
-        <div class="btnSmall" (click)="onTextBtnClick('PLACE')">
-            <p>Select</p>    
-          </div>
+<div *ngIf="validPartyId" class="content" (click)="onTextBtnClick('PLACE')">
+   <div style="width: 100%; ">
+        <img src="../../assets/images/Pin.svg"  width="70px" height="70px" style="float:right;">      
+        <h2>LOCATION</h2>
    </div>        
 </div>
 
-<div *ngIf="validPartyId" class="content"> 
+<div *ngIf="validPartyId" class="content" (click)="onTextBtnClick('ITEMS')"> 
     <div style="width: 100%;">
         <img src="../../assets/images/Beer.svg" width="70px" height="70px" style="float:right;">      
         <h2>ITEMS NEEDED</h2>
-        <div class="btnSmall" (click)="onTextBtnClick('ITEMS')">
-          <p>Select</p>    
-        </div>
-   </div>
+    </div>
 </div>
 
-<div *ngIf="validPartyId" class="content">
+<div *ngIf="validPartyId" class="content" (click)="onTextBtnClick('GUEST')">
     <div style="width: 100%;">
         <img src="../../assets/images/Person.svg" width="70px" height="70px" style="float:right;">      
         <h2>GUEST LIST</h2>
-        <div class="btnSmall" (click)="onTextBtnClick('GUEST')">
-            <p>Select</p>    
-        </div>
-   </div>
+    </div>
 </div>

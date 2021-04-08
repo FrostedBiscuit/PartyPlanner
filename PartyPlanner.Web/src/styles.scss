@@ -6,20 +6,20 @@
 }
 
 .content{
-    margin: 30px 10px ;
+    margin: 21px 21px 21px 21px;
     background-color: #303138;
-    border-Radius: 20px;
+    border-Radius: 30px;
     padding: 10px;
-    box-Shadow:6px 6px 10px #222227, -6px -6px 8px #47484f;
+    box-Shadow:4px 4px 10px #23242A, -4px -4px 10px #3B3D44;
 }
 .btnSmall{
     width: 50px;
-    height: 20px;
+    height: 50px;
     background-Color: #303138;
     color: white;
     font-Size:8px;
-    border-Radius: 20px;
-    box-Shadow: 2px 2px 4px #222227, -2px -2px 4px #47484f;
+    border-Radius: 30px;
+    box-Shadow: 2px 2px 5px #23242A, -2px -2px 5px #3B3D44;
     display: flex;
     justify-content: center;
     align-items: center; 
@@ -30,22 +30,22 @@
       background-Color: #303138;
       color: white;
       font-Size: 12px;
-      border-Radius: 20px;
-      box-Shadow: 4px 4px 8px #222227, -4px -4px 8px #47484f;
+      border-Radius: 30px;
+      box-Shadow: 3px 3px 6px #23242A, -3px -3px 6px #3B3D44;
       display: flex;
       justify-content: center;
       align-items: center; 
-      flex-wrap: wrap;
-      
+      flex-wrap: wrap; 
 }
+
 .btnBig{
     width: 250px;
     height: 60px;
     background-Color: #303138;
     color: white;
     font-Size: 25px;
-    border-Radius: 20px;
-    box-Shadow: 6px 6px 12px #222227, -4px -4px 6px #47484f;
+    border-Radius: 30px;
+    box-Shadow: 4px 4px 10px #23242A, -4px -4px 10px #3B3D44;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -53,38 +53,35 @@
  
 input[type=text], select {
     width:90%;
-    padding: 12px 10px;
-    margin: 8px 5px;
+    padding: 12px 8px;
+    margin: 5px 5px 5px 5px;
     background-Color: #303138;
     color: white;
     font-Size:12px;
-    border-Radius: 20px;
-    box-Shadow: 4px 4px 8px #222227, -4px -4px 8px #47484f;
-    outline: none;
+    border-Radius: 10px;
+    border-width: 2px;
   }
 
 input[type=datetime-local], select {
     width:90%;
-    padding: 12px 10px;
-    margin: 8px 5px;
+    padding: 12px 8px;
+    margin: 5px 5px 5px 5px;
     background-Color: #303138;
     color: white;
     font-Size:12px;
-    border-Radius: 20px;
-    box-Shadow: 4px 4px 8px #222227, -4px -4px 8px #47484f;
-    outline: none;
+    border-Radius: 10px;
+    border-width: 2px;
   }
 
 input[type=number], select {
     width:90%;
     padding: 12px 10px;
-    margin: 8px 5px;
+    margin: 5px 5px 5px 5px;
     background-Color: #303138;
     color: white;
     font-Size:12px;
-    border-Radius: 20px;
-    box-Shadow: 4px 4px 8px #222227, -4px -4px 8px #47484f;
-    outline: none;
+    border-Radius: 10px;
+    border-width: 2px;
   }
 
 .box{
