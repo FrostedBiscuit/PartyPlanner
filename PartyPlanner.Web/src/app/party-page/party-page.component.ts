@@ -59,5 +59,7 @@ export class PartyPageComponent implements OnInit {
     if(arg=='ITEMS') this.router.navigate(['/categoryList'])
 
     if(arg=='PLACE') this.router.navigate(['/place'])
+
+    if(arg=='SHARE') this.router.navigate(['/share'])
   }
 }
