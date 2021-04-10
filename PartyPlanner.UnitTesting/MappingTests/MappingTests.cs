@@ -51,7 +51,7 @@ namespace PartyPlanner.UnitTesting.MappingTests
                     Name = "Test party",
                     Description = "Lorem ipsum",
                     Budget = 100,
-                    PartyDate = DateTime.Now
+                    DateFrom = DateTime.Now
                 },
                 CreationDate = DateTime.Today
             };
@@ -111,7 +111,7 @@ namespace PartyPlanner.UnitTesting.MappingTests
                     Name = "Test party",
                     Description = "Lorem ipsum",
                     Budget = 100,
-                    PartyDate = DateTime.Now
+                    DateFrom = DateTime.Now
                 }
             };
             var subject = new Party
