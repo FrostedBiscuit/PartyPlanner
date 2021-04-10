@@ -36,6 +36,8 @@ export class Guest{
     vegan: boolean;
     vegetarian: boolean;//aka fegetalac
     nonDrinker: boolean;//verjetno pičkica
+    paid:boolean;
+    host:boolean;
 }
 
 export class CategoryBody{

@@ -13,10 +13,10 @@ export class GuestItemComponent implements OnInit {
   partyId: String = localStorage.getItem('partyId');
 
   @Input() guest: Guest; 
-  @Input() host: boolean = false;
-  @Input() name: string;
-  @Input() meat: boolean = false;
-  @Input() paid: boolean = false;
+  //@Input() host: boolean = false;
+  //@Input() name: string;
+  //@Input() meat: boolean = false;
+  //@Input() paid: boolean = false;
   
   
   constructor(private router: Router,private _ppRest: ppRestService) { 
@@ -24,20 +24,28 @@ export class GuestItemComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    
+    console.log(this.guest);
   }
 
   toggleHost(){
-    console.log(this.guest);
-    this.host = !this.host;
+    
+    this.guest.host = !this.guest.host;
   }
 
-  toggleMeat(){
-    this.meat =!this.meat;
+  toggleVegetarian(){
+    this.guest.vegetarian =!this.guest.vegetarian;
   }
 
   togglePaid(){
-    this.paid = !this.paid;
+    this.guest.paid = !this.guest.paid;
+  }
+
+  toggleVegan(){
+    this.guest.vegan = !this.guest.vegan;
+  }
+
+  toggleDrinker(){
+    this.guest.nonDrinker = !this.guest.nonDrinker;
   }
 
   deleteGuest(){
