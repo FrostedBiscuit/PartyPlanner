@@ -27,4 +27,7 @@ services:
         restart: always
         volumes: 
             - ./PartyPlanner.Database:/data/db
-    
+
+secrets:
+    test_secret:
+        external: true
