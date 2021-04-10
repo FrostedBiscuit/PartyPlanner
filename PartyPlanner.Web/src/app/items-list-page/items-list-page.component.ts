@@ -40,6 +40,7 @@ export class ItemsListPageComponent implements OnInit {
     item.description=description;
     item.price=Number.parseFloat(price);
     item.quantity=this.addNewQuantity;
+    this.addNewQuantity=0;
     this.itemList.push(item);
 
     this.category.items=this.itemList;
@@ -51,6 +52,7 @@ export class ItemsListPageComponent implements OnInit {
       error => {
         console.log(error);
     });
+    
 
     
   }
