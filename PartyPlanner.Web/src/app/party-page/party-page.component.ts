@@ -62,4 +62,12 @@ export class PartyPageComponent implements OnInit {
 
     if(arg=='SHARE') this.router.navigate(['/share'])
   }
+  onCodeResult(resultString: string) {
+    if (window.confirm('Do you want to check this party?: '+resultString))
+      {
+        this.checkParty(resultString);
+      }
+      
+    
+  }
 }

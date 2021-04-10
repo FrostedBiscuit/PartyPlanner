@@ -8,11 +8,11 @@ import { Router } from '@angular/router';
 })
 export class SharePageComponent implements OnInit {
 
-  partyId: String = localStorage.getItem('partyId');
+  partyId: String = ""
 
   constructor(private router: Router) {
-
-   }
+    this.partyId = localStorage.getItem('partyId');  
+  }
 
   ngOnInit(): void {
   }

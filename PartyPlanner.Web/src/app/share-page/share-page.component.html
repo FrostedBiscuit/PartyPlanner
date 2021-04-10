@@ -4,7 +4,7 @@
          <p id="ID">{{ partyId }}</p>
          <div class="btnMedium" (click)="onCopy()">Copy to clip board </div>
          <p>Copy and share it with a friend</p>
-
+         <qrcode [qrdata]="partyId" [width]="256" [errorCorrectionLevel]="'S'"></qrcode>
          
 </div>
 

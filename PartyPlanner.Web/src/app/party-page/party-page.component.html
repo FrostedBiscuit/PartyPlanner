@@ -8,6 +8,8 @@
         <input #partyName type="text" placeholder="Name of a party">       
   
     <div class="btnSmall" (click)="createParty(partyName.value)">Save</div>
+
+    <zxing-scanner [formats]="['QR_CODE']" (scanSuccess)="onCodeResult($event)" ></zxing-scanner>
 </div>
 <div *ngIf="validPartyId" class="content" (click)="onTextBtnClick('PLACE')">
    <div style="width: 100%; ">
