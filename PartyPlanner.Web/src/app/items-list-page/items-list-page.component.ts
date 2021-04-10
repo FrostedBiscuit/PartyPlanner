@@ -64,16 +64,17 @@ export class ItemsListPageComponent implements OnInit {
     if(this.addNewQuantity > 0) this.addNewQuantity--;
   }
 
-  on(){
-    document.getElementById('overlay').style.display="block"
-  }
-  off(){
-    document.getElementById('overlay').style.display="none"
-  }
+  // on(){
+  //   document.getElementById('overlay').style.display="block"
+  // }
+  // off(){
+  //   document.getElementById('overlay').style.display="none"
+  // }
 
-  shopping(){
-    this.router.navigate(['/shoppingList']) 
-  }
+  // shopping(){
+  //   this.router.navigate(['/shoppingList']) 
+  // }
+  
   party(){
     this.router.navigate(['/categoryList']);
   }
