@@ -14,6 +14,8 @@ namespace PartyPlanner.Core.Dtos
         public bool? Vegan { get; set; }
         public bool? Vegetarian { get; set; }
         public bool? NonDrinker { get; set; }
+        public bool? Paid { get; set; }
+        public bool? Host { get; set; }
 
         public void Update(Guest g)
         {
