@@ -1,7 +1,11 @@
 <div *ngIf="!validPartyId" class="content">
+    <h1>Check existing party</h1>
+    <p>Enter party id</p>
+        <input #partyid type="text" placeholder="Name of a party">
+    <div class="btnSmall" (click)="checkParty(partyid.value)">Check existing</div>     
+    <h1>Create new party</h1>
     <p>Party name</p>
- 
-    <input #partyName type="text" placeholder="Name of a party" >       
+        <input #partyName type="text" placeholder="Name of a party">       
   
     <div class="btnSmall" (click)="createParty(partyName.value)">Save</div>
 </div>

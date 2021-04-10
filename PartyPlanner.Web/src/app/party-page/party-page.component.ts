@@ -41,6 +41,17 @@ export class PartyPageComponent implements OnInit {
       
     })
   }
+
+  checkParty(partyId:string){
+    this._ppRest.getPartyById(partyId).subscribe((result: Party)=>{
+      localStorage.setItem('partyId', result.id);
+      this.validPartyId=true;
+      console.log(result);
+    },
+    error => {
+      console.log('error');
+    }); 
+  }
   onTextBtnClick(arg: string){
   
     if(arg=='GUEST') this.router.navigate(['/guest'])

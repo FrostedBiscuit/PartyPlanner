@@ -19,6 +19,10 @@ export class ppRestService
         return this.httpClient.get("/api/party") 
     }
 
+    getPartyById(id: string){
+        return this.httpClient.get("/api/party/"+id);
+    }
+
     putParty(name: string){  
         
         const params = new HttpParams()
