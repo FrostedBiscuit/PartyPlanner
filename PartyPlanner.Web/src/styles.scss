@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-*{
+body{
     background-color:#303138;
     color: white;
     font-family: 'Raleway'
@@ -51,7 +51,7 @@
     align-items: center;
 }
  
-input[type=text], select {
+input[type=text], select { //<-Select pomoje odveČ?, saj ga spodaj povozi css
     width:90%;
     padding: 12px 8px;
     margin: 5px 5px 5px 5px;
@@ -72,11 +72,11 @@ input[type=text], select {
 
   }
 
-input[type=datetime-local], select {
+input[type=datetime-local], select { //<-Select pomoje odveČ?, saj ga spodaj povozi css
     width:90%;
     padding: 12px 8px;
     margin: 5px 5px 5px 5px;
-    background-Color: #303138;
+    background-color: #303138;
     color: white;
     font-Size:12px;
     border-Radius: 15px;
@@ -84,6 +84,16 @@ input[type=datetime-local], select {
     box-shadow: inset 2px 2px 4px #23242A,
                 inset -2px -2px 4px #3B3D44;
     border-style: none;
+    
+  }
+
+  /*Chrome icon white color*/
+  input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+  }
+
+  .date-input{
+    background-color: #303138;
   }
   
   /*    k maš selectan input  */
@@ -92,7 +102,7 @@ input[type=datetime-local], select {
     outline: 1px solid #00ffff00;
   }
 
-input[type=number], select {
+input[type=number], select { //<-Select pomoje odveČ?, saj ga spodaj povozi css
     width:90%;
     padding: 12px 10px;
     margin: 5px 5px 5px 5px;
@@ -135,9 +145,9 @@ input[type=number], select {
   font-weight: 700;
   border-width: 0px;
   outline: none;
-  border-top-style: hidden;
+  border-style: hidden;
   border-right-style: hidden;
-  border-left-style: hidden;
+  border-left-style: hidden; //<-Optimizirat!
   border-bottom-style: groove;
   background-color: #303138;
 }
