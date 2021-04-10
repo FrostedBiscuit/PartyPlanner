@@ -13,11 +13,7 @@ export class GuestItemComponent implements OnInit {
   partyId: String = localStorage.getItem('partyId');
 
   @Input() guest: Guest; 
-  //@Input() host: boolean = false;
-  //@Input() name: string;
-  //@Input() meat: boolean = false;
-  //@Input() paid: boolean = false;
-  
+ 
   
   constructor(private router: Router,private _ppRest: ppRestService) { 
     
@@ -32,7 +28,7 @@ export class GuestItemComponent implements OnInit {
     this.guest.host = !this.guest.host;
   }
 
-  toggleVegetarian(){
+  toggle(){
     this.guest.vegetarian =!this.guest.vegetarian;
   }
 

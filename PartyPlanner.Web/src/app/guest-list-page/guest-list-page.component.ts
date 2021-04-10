@@ -49,6 +49,7 @@ export class GuestListPageComponent implements OnInit {
     //guest.phone="030444555";
     guest.vegan=this.vegan;
     guest.vegetarian=this.vegetarian;
+    guest.paid = this.paid;
     console.log(guest);
     this._ppRest.postGuest(this.partyId,guest).subscribe(
       (data: Guest) => {
