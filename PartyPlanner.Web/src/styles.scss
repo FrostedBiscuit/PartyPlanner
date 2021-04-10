@@ -19,7 +19,7 @@
     color: white;
     font-Size:8px;
     border-Radius: 30px;
-    box-Shadow: 2px 2px 5px #23242A, -2px -2px 5px #3B3D44;
+    box-Shadow: 2px 2px 4px #23242A, -2px -2px 4px #3B3D44;
     display: flex;
     justify-content: center;
     align-items: center; 
@@ -58,8 +58,18 @@ input[type=text], select {
     background-Color: #303138;
     color: white;
     font-Size:12px;
-    border-Radius: 10px;
+    border-Radius: 15px;
     border-width: 2px;
+    box-shadow: inset 2px 2px 4px #23242A,
+                inset -2px -2px 4px #3B3D44;
+    border-style: none;
+  }
+
+  /*    k maš selectan input  */
+  input[type=text]:focus, select {
+    box-shadow: 0px 0px 4px #00ffff;
+    outline: 1px solid #00ffff00;
+
   }
 
 input[type=datetime-local], select {
@@ -69,8 +79,17 @@ input[type=datetime-local], select {
     background-Color: #303138;
     color: white;
     font-Size:12px;
-    border-Radius: 10px;
+    border-Radius: 15px;
     border-width: 2px;
+    box-shadow: inset 2px 2px 4px #23242A,
+                inset -2px -2px 4px #3B3D44;
+    border-style: none;
+  }
+  
+  /*    k maš selectan input  */
+  input[type=datetime-local]:focus, select {
+    box-shadow: 0px 0px 4px #00ffff;
+    outline: 1px solid #00ffff00;
   }
 
 input[type=number], select {
@@ -80,8 +99,17 @@ input[type=number], select {
     background-Color: #303138;
     color: white;
     font-Size:12px;
-    border-Radius: 10px;
+    border-Radius: 15px;
     border-width: 2px;
+    box-shadow: inset 4px 4px 4px #23242A,
+                inset -4px -4px 4px #3B3D44;
+    border-style: none;
+  }
+  
+  /*    k maš selectan input  */
+  input[type=number]:focus, select {
+    box-shadow: 0px 0px 4px #00ffff;
+    outline: 1px solid #00ffff00;
   }
 
 .box{
@@ -97,3 +125,19 @@ input[type=number], select {
   padding-bottom: 15px;
 }
 
+.input-catergory{
+  float:left;
+  width:60%;
+  margin-top: 10px;
+  height: 25px;
+  font-size: 21px;
+  text-transform: uppercase;
+  font-weight: 700;
+  border-width: 0px;
+  outline: none;
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom-style: groove;
+  background-color: #303138;
+}

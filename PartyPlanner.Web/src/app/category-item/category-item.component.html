@@ -1,19 +1,20 @@
-<div class="content">
+<div class="btnMedium-x" style="float:right;" (click)="deleteCategory()">
+    <img style="float:right; width: 100%;" src="../../assets/images/X.svg">
+</div> 
+<div class="content-category" (click)="goToCategory()">
         
-    <img  src="../../assets/images/Party_yes.svg">
+    <img style="float:right; width: 20%; margin-top:  25px; fill-opacity: 0.5;" src="../../assets/images/Person.svg">
+
 
     <!-- <p>{{ category.name }}</p> -->
-    <input style=" width:50%" #name type="text" placeholder="Category" value="{{ category.name }}"> 
+    <input class="input-catergory" #name type="text" placeholder="Category" value="{{ category.name }}"> 
     
-    <div class="btnSmall" style="float:right;" (click)="deleteCategory()">
-        <p>X</p>
-    </div> 
-    
-    <div class="btnSmall" (click)="goToCategory()">
-        <p>-></p>
+
+    <!-- Sm dal stran button
+    <div class="btnMedium-add" style="margin-top: 70px;" (click)="goToCategory()">
+        <img class="forward" src="../../assets/images/Back.svg">
     </div>  
+    -->
 
     
-    
-     
 </div>
