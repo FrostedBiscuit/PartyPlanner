@@ -365,6 +365,9 @@ PartyPlanner.Database/
 # Ignore logs
 PartyPlanner.Logs/
 
+# Ignore secrets
+PartyPlanner.Secrets/
+
 # compiled output
 /dist
 /tmp
