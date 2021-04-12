@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 
 import { ppRestService} from '../services/ppRest.services';
 import { Info } from '../party'
+import { float } from '@zxing/library/esm/customTypings';
 
 @Component({
   selector: 'app-place-page',
@@ -52,6 +53,7 @@ export class PlacePageComponent implements OnInit {
     this.partyInfo.dateFrom=dateFrom;
     this.partyInfo.dateTo=dateTo;
     this.partyInfo.budget=Number(budget);
+    console.log(budget);
     console.log(this.partyInfo);
 
     this._ppRest.postPartyDetails(this.partyId,this.partyInfo).subscribe(

@@ -1,0 +1,37 @@
+
+<div class="content">
+    <h1>{{party.info.name}}</h1>
+
+    <div>
+        <img class="icon" src="../../assets/images/Pin.svg" alt="Pin icon">
+        <p>{{party.info.address}}</p>
+        <p>{{party.info.budget}} €</p>
+    </div>
+
+    <!-- GUEST LIST -->
+    <img class="icon" src="../../assets/images/Beer.svg" alt="Beer icon">
+    <div  *ngFor="let category of categoryBudget">
+        <p>{{category.name}}  {{category.price}} €</p>
+    </div>
+
+    <!-- GUEST LIST -->
+    <div>
+        <img class="icon" src="../../assets/images/Person.svg" alt="Person icon">
+        <h2>GUEST LIST</h2>
+        <p>{{ guestLen }} PEOPLE</p>
+    </div>
+
+    <!-- TOTAL -->
+    <img class="icon" src="../../assets/images/Coin.svg" alt="Coin icon">
+    <div>
+        <p>TOTAL {{ totalBudget }} €</p>
+        <p>GUEST {{ guestLen }}</p>
+        <p>PER PERSON = {{ perPerson }} €</p>
+    </div>
+</div>
+
+<div class="footer">
+    <div class="btnSmall" style="float:left; margin-left: 21px;" (click)="backToParty()">
+        <img src="../../assets/images/Back.svg" style="width: 12px; height: auto;">
+    </div>
+</div>

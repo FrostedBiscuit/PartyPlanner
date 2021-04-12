@@ -25,6 +25,7 @@ import { SharePageComponent } from './share-page/share-page.component'
 
 import { QRCodeModule } from 'angularx-qrcode';
 import { ZXingScannerModule } from '@zxing/ngx-scanner';
+import { CalculatePageComponent } from './calculate-page/calculate-page.component';
 
 
 
@@ -44,7 +45,8 @@ import { ZXingScannerModule } from '@zxing/ngx-scanner';
     ShoppingItemComponent,
     CategoryItemComponent,
     CategoryListPageComponent,
-    SharePageComponent
+    SharePageComponent,
+    CalculatePageComponent
     
   ],
   imports: [
