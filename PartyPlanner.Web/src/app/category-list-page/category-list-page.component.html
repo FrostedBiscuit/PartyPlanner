@@ -7,13 +7,12 @@
 </div>
 <div *ngIf="addNewVisible" id="add" class="content">
     <div class="box">
+        <p style=" font-size: 13px; margin: 8px 0px 4px 10px;">Add your own category</p>
         
         <input #categoryName class="input" #name type="text" placeholder="Category">
-        <img style="float:right; width: 20%; margin-top:  25px;" src="../../assets/images/Person.svg">
             
     </div>
-    <br style="clear:both">
-    <div class="btnMedium-add" (click)="createCategory(categoryName.value)">
+    <div class="btnMedium-add" (click)="createCategory(categoryName.value);categoryName.value=''">
         <p>ADD</p>
     </div>
      

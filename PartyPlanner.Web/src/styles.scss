@@ -2,7 +2,7 @@
 *{
     background-color:#303138;
     color: white;
-    font-family: 'Raleway'
+    font-family: 'Raleway', sans-serif;
 }
 
 .content{
@@ -63,6 +63,7 @@ input[type=text], select {
     box-shadow: inset 2px 2px 4px #23242A,
                 inset -2px -2px 4px #3B3D44;
     border-style: none;
+    font-family: 'Raleway', sans-serif;
   }
 
   /*    k maš selectan input  */
@@ -84,6 +85,17 @@ input[type=datetime-local], select {
     box-shadow: inset 2px 2px 4px #23242A,
                 inset -2px -2px 4px #3B3D44;
     border-style: none;
+    font-family: 'Raleway', sans-serif;
+    
+  }
+
+  /*Chrome icon white color*/
+  input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+  }
+
+  .date-input{
+    background-color: #303138;
   }
   
   /*    k maš selectan input  */
@@ -104,6 +116,7 @@ input[type=number], select {
     box-shadow: inset 4px 4px 4px #23242A,
                 inset -4px -4px 4px #3B3D44;
     border-style: none;
+    font-family: 'Raleway', sans-serif;
   }
   
   /*    k maš selectan input  */

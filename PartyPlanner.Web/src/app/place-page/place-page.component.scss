@@ -17,3 +17,42 @@
     font-weight: 600;
     margin-right: 60px;
 }
+
+.multiple{
+    margin-left: 9px;
+    font-size: 12px;
+    right: 10px;
+    color: #d8d8d8;
+}
+
+.klukca{
+    margin: 0px 0px 0px 5px;
+    padding-top: 5px;
+    border:2px dotted rgb(0, 247, 255);
+    background:#fcfcfc;
+}
+
+.mali{
+    font-size: 10PX;
+    margin-left: 8px;
+    margin-bottom: 0px;
+}
+
+.input-symbol-euro {
+    position: relative;
+    display: inline-block;
+    width: 40%;
+  }
+  
+  .input-symbol-euro input {
+    padding-right: 20px;
+    width: 100%;
+  }
+  
+  .input-symbol-euro:after {
+    position: absolute;
+    top:31%;
+    margin: auto;
+    content: "€";
+    right: 60px;
+  }

@@ -8,15 +8,23 @@
     <input #location type="text" placeholder="Staircase / apartment / floor / other " > <!-- value="{{ partyInfo.description }}" Za Spremenit -->
 
 
-    <p style="text-align: left; padding-left: 8px; margin-bottom: 6px; font-weight: 600;">Date and Time</p> <!-- More kazat datum današnji -->
-        <input id="today" #date type="datetime-local" value="{{ partyDateStr }}">
+    <p style="text-align: left; padding-left: 8px; margin-bottom: 6px; font-weight: 600;">Date and Time From</p> 
+    <p class="mali">START DAY</p>
+        <input  #dateFrom type="datetime-local" value="{{ dateFromStr }}">
 
-    <p style="text-align: left; padding-left: 8px; margin-bottom: 6px; font-weight: 600;">Pricing</p>
-        <input #budget type="text" placeholder="120€" value="{{ partyInfo.budget }}" style="width:30% ;float: left;">   
-        <input #budget type="text" placeholder="1day" value="{{ partyInfo.budget }}" style="width:10% ; float: left;"><!-- Koliko dni za dodat kopirano iz item-item plus minus-->     
-     
+    <p class="multiple" >MULTIPLE DAYS <input class="klukca" type="checkbox" (change)="multiDays($event)"></p> 
+      
+    <div *ngIf="isChecked">   
+        <p class="mali">END DAY</p>
+            <input #dateTo type="datetime-local"  value="{{ dateToStr }}">   
+    </div>
+
+    <p style="text-align: left; padding-left: 8px; margin-bottom: 6px; font-weight: 600; margin-top: 40px;">Location Price</p>
+    <span class="input-symbol-euro">
+        <input #budget type="text" placeholder="120" value="{{ partyInfo.budget }}" style="width:30% ;float: left;">   
+    </span>
+        <!--<input type="text" placeholder="1day"  style="width:10% ; float: left;"> Koliko dni za dodat kopirano iz item-item plus minus-->
 </div>
-
 
 <div class="footer">
     <div class="btnSmall" style="float:left;" (click)="party()">
