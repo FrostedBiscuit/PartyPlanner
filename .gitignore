@@ -410,3 +410,6 @@ testem.log
 .DS_Store
 Thumbs.db
 PartyPlanner.Web/package-lock.json
+
+# Secrets
+PartyPlanner.Secrets/*
