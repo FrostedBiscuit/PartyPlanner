@@ -4,20 +4,19 @@
       background-Color: #303138;
       color: white;
       font-Size: 12px;
-      border-Radius: 20px;
+      border-Radius: 15px;
       box-Shadow: 3px 3px 6px #23242A, -3px -3px 6px #3B3D44;
       display: flex;
       justify-content: center;
       align-items:center; 
       flex-wrap: wrap; 
-      margin-top: -20px;
-      margin-left: 7px;
+      margin-top: -50px;
+      margin-right: 5px;
+      float: right;
 }
 
 .input{
-      float:left;
-      width:70%;
-      margin-top: 10px;
+      width:60%;
       height: 25px;
       font-size: 21px; 
       text-transform: uppercase;

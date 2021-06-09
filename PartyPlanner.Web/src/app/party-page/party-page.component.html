@@ -1,55 +1,60 @@
 <!-- If JS doesn't detect party ID in session storage -->
 <div *ngIf="!validPartyId" class="content">
 
-    <h1>Create new party</h1>
-    <p>Party name</p>
-        <input #partyName type="text" placeholder="Name of a party">       
+    <h1 class="naslovi">Create new party</h1>
+    <p class="text">Name your party</p>
+        <input #partyName type="text" placeholder="After Lockdown Party" class="inputi">       
   
-    <div class="btnMedium" (click)="createParty(partyName.value)">Create</div>
+    <div class="btnMedium1" (click)="createParty(partyName.value)">Create</div>
+</div>
+<div *ngIf="!validPartyId" class="content">
+    <h1 class="naslovi">Check existing party</h1>
+    <p class="text">Enter party id</p>
+        <input #partyid type="text" placeholder="Party ID" class="inputi">
 
-    <h1>Check existing party</h1>
-    <p>Enter party id</p>
-        <input #partyid type="text" placeholder="Party ID">
-
-    <div class="btnMedium" (click)="checkParty(partyid.value)">Check existing</div>   
+    <div class="btnMedium2" (click)="checkParty(partyid.value)">Check existing</div>   
     
-    <h1>Scan QR</h1>
+    <div class="btnMedium3">
+    <p class="text">Scan QR <i class="fas fa-qrcode"></i></p>
     <zxing-scanner [formats]="['QR_CODE']" (scanSuccess)="onCodeResult($event)" ></zxing-scanner>
+    </div>
 
 </div>
 
 <!-- ELSE JS doesn't detect party ID in session storage -->
 <div *ngIf="validPartyId" class="content" (click)="onTextBtnClick('PLACE')">
    <div style="width: 100%; ">
-        <img src="../../assets/images/Pin.svg"  width="70px" height="70px" style="float:right; margin-top: -20px;">      
+        <img src="../../assets/images/pin.svg"  width="80px" height="auto" style="float:right; margin-top: -25px;">      
         <h2>LOCATION</h2>
    </div>        
 </div>
 
-<div *ngIf="validPartyId" class="content" (click)="onTextBtnClick('ITEMS')"> 
+<div *ngIf="validPartyId" class="content" style="padding: 10px 6px 10px 20px;" (click)="onTextBtnClick('ITEMS')"> 
     <div style="width: 100%;">
-        <img src="../../assets/images/Beer.svg" width="70px" height="70px" style="float:right; margin-top: -20px;">      
+        <img src="../../assets/images/Beer.svg" width="83px" height="auto" style="float:right; margin-top: -25px; padding-left: 5px;">      
         <h2>ITEMS NEEDED</h2>
     </div>
 </div>
 
 <div *ngIf="validPartyId" class="content" (click)="onTextBtnClick('GUEST')">
     <div style="width: 100%;">
-        <img src="../../assets/images/Person.svg" width="70px" height="70px" style="float:right; margin-top: -20px;">      
+        <img src="../../assets/images/Person.svg" width="80px" height="auto" style="float:right; margin-top: -25px;">      
         <h2>GUEST LIST</h2>
-    </div>
-</div>
-
-<div *ngIf="validPartyId" class="content" (click)="onTextBtnClick('SHARE')">
-    <div style="width: 100%;">
-        <img src="../../assets/images/Person.svg" width="70px" height="70px" style="float:right; margin-top: -20px;">      
-        <h2>SHARE</h2>
     </div>
 </div>
 
 <div *ngIf="validPartyId" class="content" (click)="onTextBtnClick('CALCULATE')">
     <div style="width: 100%;">
-        <img src="../../assets/images/Person.svg" width="70px" height="70px" style="float:right; margin-top: -20px;">      
+        <img src="../../assets/images/Calculator.svg" class="kalkulator" width="80px" height="auto" style="float:right; margin-top: -25px;">      
         <h2>CALCULATE</h2>
     </div>
 </div>
+
+
+<div *ngIf="validPartyId" class="content" (click)="onTextBtnClick('SHARE')">
+    <div style="width: 100%;">
+        <img src="../../assets/images/share.svg" width="80px" height="auto" style="float:right; margin-top: -25px;">      
+        <h2>SHARE</h2>
+    </div>
+</div>
+
