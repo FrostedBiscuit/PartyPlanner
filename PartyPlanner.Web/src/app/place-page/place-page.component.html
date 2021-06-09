@@ -7,21 +7,6 @@
     <input #address type="text" placeholder="Street address and building number" value="{{ partyInfo.address }}">
     <input #exactDirections type="text" placeholder="Staircase / apartment / floor / other " value="{{ partyInfo.exactDirections }}" > 
 
-
-    <p style="text-align: left; padding-left: 8px; margin-bottom: 6px; font-weight: 600;">Date and Time From</p> 
-        <input  #dateFrom type="datetime-local" value="{{ dateFromStr }}">
-
-    <p>Multiple days</p> 
-        <input type="checkbox" (change)="multiDays($event)"> <!--Postajlej-->
-      
-    <div *ngIf="isChecked">   
-        <p  style="text-align: left; padding-left: 8px; margin-bottom: 6px; font-weight: 600;">Date and Time To</p> 
-            <input #dateTo type="datetime-local"  value="{{ dateToStr }}">   
-    </div>
-
-    <p style="text-align: left; padding-left: 8px; margin-bottom: 6px; font-weight: 600;">Pricing</p>
-        <input #budget type="text" placeholder="120€" value="{{ partyInfo.budget }}" style="width:30% ;float: left;">   
-        <!--<input type="text" placeholder="1day"  style="width:10% ; float: left;"> Koliko dni za dodat kopirano iz item-item plus minus-->     
     <p class="mali">START DAY</p>
         <input  #dateFrom type="datetime-local" value="{{ dateFromStr }}">
 
