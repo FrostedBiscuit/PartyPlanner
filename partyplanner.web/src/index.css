@@ -16,11 +16,22 @@ code {
 h1 {
   color: #f8f9fa;
 }
+/* 
+#editPartyInfoForm div label {
+  height: 20px;
+  width: 200px;
+  clear: both;
+}
+
+#editPartyInfoForm div input {
+  height: 20px;
+  width: 300px;
+} */
 
 .component {
   border-radius: 3px;
   background-color: #343a40;
-  padding: 20px;
+  padding: 35px;
   margin-left: 35%;
   margin-right: 35%;
   margin-top: 25px;
@@ -32,8 +43,12 @@ h1 {
   border-radius: 3px;
   background-color: #6c757d;
   color: #ced4da;
-  margin: 15px;
+  margin-top: 15px;
   padding: 10px;
+}
+
+.item p {
+  margin: 5px;
 }
 
 .subitem {
@@ -42,8 +57,4 @@ h1 {
   color: #ced4da;
   margin: 15px;
   padding: 10px;
-}
-
-.item p {
-  margin: 5px;
 }

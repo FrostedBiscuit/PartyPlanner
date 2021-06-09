@@ -1,32 +1,59 @@
 import './App.css';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
+import CreateParty from './components/create-party/CreateParty';
+import EnterPartyId from './components/enter-party-id/EnterPartyId';
 import PartyInfo from './components/party-info/PartyInfo';
 import CategoryList from './components/category/CategoryList';
 import GuestList from './components/guest/GuestList';
 
-import getParty from './services/PartyService';
-import EnterPartyId from './components/enter-party-id/EnterPartyId';
+import { getParty, createParty, createCategory, updatePartyInfo } from './services/PartyService';
 
 function App() {
     const [party, setParty] = useState();
 
-    useEffect(() => {
-        getParty('5774d5f9-2bae-4bdc-b063-568c0ceb710b').then(
-            p => {
-                setParty(p);
-            },
-            e => console.log(e)
-        );
-    },
-        []);
+    const setPartyId = async (partyId) => {
+        const _party = await getParty(partyId);
+
+        if (_party) {
+            setParty(_party);
+        }
+    };
+
+    const createNewParty = async (name) => {
+        const _party = await createParty(name);
+
+        if (_party) {
+            setParty(_party);
+        }
+    }
+
+    const onCategoryCreated = async (category) => {
+        const success = await createCategory(party.id, category);
+
+        if (success) {
+            setParty(await getParty(party.id));
+        }
+    };
+
+    const onUpdatePartyInfo = async (partyInfo) => {
+        const success = await updatePartyInfo(party.id, partyInfo);
+
+        if (success) {
+            setParty(await getParty(party.id));
+        }
+    };
+
 
     return (
         <div className="App">
             <h1>PartyPlanner</h1>
-            {party && <PartyInfo partyInfo={party.info} />}
-            {party && <CategoryList categories={party.categories} />}
+            {!party && <EnterPartyId onPartyIdSet={setPartyId} />}
+            {!party && <CreateParty onCreateNewParty={createNewParty} />}
+            {party && <button onClick={() => setParty(null)}>Reset partyId</button>}
+            {party && <PartyInfo partyInfo={party.info} id={party.id} onUpdatePartyInfo={onUpdatePartyInfo} />}
+            {party && <CategoryList categories={party.categories} onCategoryCreated={onCategoryCreated} />}
             {party && <GuestList guests={party.guests} />}
         </div>
     );
