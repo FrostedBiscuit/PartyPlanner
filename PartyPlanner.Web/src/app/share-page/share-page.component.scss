@@ -1,0 +1,45 @@
+.naslov{
+    font-size: 18px;
+    margin-left: 8px;
+}
+
+.text{
+    font-size: 12px;
+    margin-left: 8px;
+    margin-bottom: 4px;
+}
+
+.koda{
+    width:90%;
+    padding: 12px 10px;
+    margin: 5px 5px 5px 5px;
+    background-Color: #303138;
+    color: white;
+    font-Size:12px;
+    border-Radius: 15px;
+    border-width: 2px;
+    box-shadow: inset 4px 4px 4px #23242A,
+                inset -4px -4px 4px #3B3D44;
+    border-style: none;
+    font-family: 'Raleway', sans-serif;
+}
+
+.btnMedium1 {
+    width: 120px;
+    height: 40px;
+    background-Color: #303138;
+    color: white;
+    font-Size: 12px;
+    border-Radius: 30px;
+    box-Shadow: 3px 3px 6px #23242A, -3px -3px 6px #3B3D44;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    flex-wrap: wrap; 
+    margin: 10px 5px 5px 6px;
+}
+
+.btnMedium1:hover {
+    background-Color: #00ffff;
+    color:#303138 ;
+}

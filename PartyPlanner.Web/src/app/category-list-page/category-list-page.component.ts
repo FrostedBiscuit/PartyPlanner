@@ -11,7 +11,6 @@ import { Category,CategoryBody } from '../party'
 export class CategoryListPageComponent implements OnInit {
 
   partyId: String = localStorage.getItem('partyId');
-  addNewVisible: boolean = false;
 
   categoryList: Category[];
   
@@ -28,8 +27,7 @@ export class CategoryListPageComponent implements OnInit {
 
   createCategory(categoryName: String){
     
-    this.addNewVisible=!this.addNewVisible;
-
+    
     let category= new Category;
     category.name=categoryName;
     category.items=[];
@@ -42,10 +40,6 @@ export class CategoryListPageComponent implements OnInit {
      error => {
        console.log(error);
      });
-  }
-
-  addCategory(){
-    this.addNewVisible = !this.addNewVisible;
   }
 
 

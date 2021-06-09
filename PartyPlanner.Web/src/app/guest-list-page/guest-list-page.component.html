@@ -17,7 +17,7 @@
         <!-- Pokaže se samo ena ta slika glede na spremenljivko host -->
         <div style="margin-top: 12px; float: right;">
         
-            <div class="btnMedium" style=" float: right; width: 80px; margin: -5px 10px 0px 4px;" (click)="postGuest(name.value,email.value)">
+            <div class="btnMedium" style=" float: right; width: 80px; margin: -5px 10px 0px 4px;" (click)="postGuest(name.value,email.value);name.value='';email.value='';">
             <p>Add to list</p>
         
             </div>
