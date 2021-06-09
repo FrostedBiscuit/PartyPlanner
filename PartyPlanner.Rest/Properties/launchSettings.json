@@ -22,7 +22,7 @@
       }
     },
     "PartyPlanner": {
-      "commandName": "IISExpress",
+      "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "api/party",
       "environmentVariables": {
