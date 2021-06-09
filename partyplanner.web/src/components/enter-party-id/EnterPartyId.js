@@ -15,14 +15,16 @@ const EnterPartyId = ({onPartyIdSet}) => {
     return (
         <div className='component'>
             <h2>Enter party ID:</h2>
-            <input {...inputProps} placeholder='Party ID' />
+            <input onChange={inputProps.onChange} placeholder='Party ID' />
+            <br/>
+            <br/>
             <button onClick={() => onPartyIdSet(inputProps.partyId)}>Submit</button>
         </div>
     );
 };
 
 EnterPartyId.defaultProps = {
-    onPartyIdSet: (partyId) => console.log("This is the default function. ", partyId)
+    onPartyIdSet: (pid) => console.log("This is the default function. ", pid)
 };
 
 export default EnterPartyId;

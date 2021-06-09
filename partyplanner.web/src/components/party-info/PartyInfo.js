@@ -1,21 +1,30 @@
-const PartyInfo = ({ partyInfo }) => {
+import { useState } from "react";
+import EditPartyInfo from "./EditPartyInfo";
 
-    if (partyInfo) {
+const PartyInfo = ({ partyInfo, id, onUpdatePartyInfo}) => {
+    const partyInfoUpdated = (info) => {
+        setEdit(false);
+        onUpdatePartyInfo(info);
+    }
+
+    const [edit, setEdit] = useState(false);
+
+    if (!edit) {
         return (
             <div className='component'>
+                {id && <p>Party ID: {id}</p>}
                 <p>Name: {partyInfo.name}</p>
                 <p>Description: {partyInfo.description}</p>
                 <p>Address: {partyInfo.address}</p>
                 <p>Date: {partyInfo.dateFrom}</p>
                 <p>Budget: {partyInfo.budget}€</p>
+                <button onClick={() => setEdit(true)}>Edit</button>
             </div>
         );
     } else {
         return (
-            <div className='component'>
-                <p>No party info object provided...</p>
-            </div>
-        )
+            <EditPartyInfo partyInfo={partyInfo} onUpdatePartyInfo={partyInfoUpdated} />
+        );
     }
 };
 
