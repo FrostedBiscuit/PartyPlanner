@@ -13,6 +13,8 @@ import { getParty, createParty, createCategory, updatePartyInfo, deleteCategory,
 function App() {
     const [party, setParty] = useState();
 
+    // Comment
+
     const setPartyId = async (partyId) => {
         const _party = await getParty(partyId);
 
