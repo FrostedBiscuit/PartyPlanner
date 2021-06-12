@@ -33,6 +33,33 @@ const createCategory = async (partyId, category) => {
     return response.ok;
 };
 
+const deleteCategory = async (partyId, categoryId) => {
+    let route = ROUTES.DELETE_CATEGORY.replace("{pid}", partyId);
+    route = route.replace("{cid}", categoryId);
+    const response = await fetch(route, {
+        method: "DELETE",
+        mode: "cors",
+        credentials: "same-origin",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    });
+    return response.ok;
+};
+
+const updateCategory = async (partyId, category) => {
+    const response = await fetch(ROUTES.CREATE_CATEGORY.replace("{pid}", partyId), {
+        method: "POST",
+        mode: "cors",
+        credentials: "same-origin",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(category)
+    });
+    return response.ok;
+};
+
 const updatePartyInfo = async (partyId, partyInfo) => {
     const response = await fetch(ROUTES.UPDATE_PARTYINFO.replace("{pid}", partyId), {
         method: "POST",
@@ -47,4 +74,31 @@ const updatePartyInfo = async (partyId, partyInfo) => {
     return response.ok;
 };
 
-export { getParty, createParty, createCategory, updatePartyInfo };
+const createGuest = async (partyId, guest) => {
+    const route = ROUTES.UPDATE_GUESTS.replace("{pid}", partyId);
+    const response = await fetch(route, {
+        method: "PUT",
+        mode: "cors",
+        credentials: "same-origin",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(guest)
+    });
+
+    return response.ok;
+};
+
+const deleteGuest = async (partyId, guestId) => {
+    let route = ROUTES.DELETE_GUEST.replace("{pid}", partyId);
+    route = route.replace("{gid}", guestId);
+    const response = await fetch(route, {
+        method: "DELETE",
+        mode: "cors",
+        credentials: "same-origin",
+    });
+
+    return response.ok;
+};
+
+export { getParty, createParty, createCategory, deleteCategory, updateCategory, updatePartyInfo, createGuest, deleteGuest };

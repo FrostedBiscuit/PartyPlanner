@@ -14,16 +14,16 @@ const PartyInfo = ({ partyInfo, id, onUpdatePartyInfo}) => {
             <div className='component'>
                 {id && <p>Party ID: {id}</p>}
                 <p>Name: {partyInfo.name}</p>
-                <p>Description: {partyInfo.description}</p>
-                <p>Address: {partyInfo.address}</p>
-                <p>Date: {partyInfo.dateFrom}</p>
-                <p>Budget: {partyInfo.budget}€</p>
+                {partyInfo.description && <p>Description: {partyInfo.description}</p>}
+                {partyInfo.Address && <p>Address: {partyInfo.address}</p>}
+                {partyInfo.dateFrom && <p>Date: {partyInfo.dateFrom}</p>}
+                {partyInfo.budget && <p>Budget: {partyInfo.budget}€</p>}
                 <button onClick={() => setEdit(true)}>Edit</button>
             </div>
         );
     } else {
         return (
-            <EditPartyInfo partyInfo={partyInfo} onUpdatePartyInfo={partyInfoUpdated} />
+            <EditPartyInfo partyInfo={partyInfo} onUpdatePartyInfo={partyInfoUpdated} onCancel={() => setEdit(false)} />
         );
     }
 };

@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-const EditPartyInfo = ({ partyInfo, onUpdatePartyInfo }) => {
+const EditPartyInfo = ({ partyInfo, onUpdatePartyInfo, onCancel }) => {
     const onSubmit = (e) => {
         e.preventDefault();
 
@@ -29,9 +29,11 @@ const EditPartyInfo = ({ partyInfo, onUpdatePartyInfo }) => {
                 <input type="date" name="date" id="date" onChange={(e) => setDate(e.target.value)} value={date ? date : new Date()} />
                 <br />
                 <label htmlFor="budget">Budget: </label>
-                <input type="number" name="budget" id="budget" onChange={(e) => setBudget(e.target.value)} value={budget ? budget : 0} />
+                <input type="number" name="budget" id="budget" min="0" onChange={(e) => setBudget(e.target.value)} value={budget ? budget : 0} />
+                <br />
                 <br />
                 <input type="submit" value="Update" />
+                <button onClick={onCancel}>Cancel</button>
             </form>
         </div>
     );

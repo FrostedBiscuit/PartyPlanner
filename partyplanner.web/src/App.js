@@ -8,7 +8,7 @@ import PartyInfo from './components/party-info/PartyInfo';
 import CategoryList from './components/category/CategoryList';
 import GuestList from './components/guest/GuestList';
 
-import { getParty, createParty, createCategory, updatePartyInfo } from './services/PartyService';
+import { getParty, createParty, createCategory, updatePartyInfo, deleteCategory, updateCategory, createGuest, deleteGuest } from './services/PartyService';
 
 function App() {
     const [party, setParty] = useState();
@@ -37,6 +37,42 @@ function App() {
         }
     };
 
+    const onCategoryDeleted = async (categoryId) => {
+        const success = await deleteCategory(party.id, categoryId);
+
+        if (success) {
+            setParty(await getParty(party.id));
+        }
+    };
+
+    const onCategoryUpdate = async (category) => {
+        for (let i = 0; i < category.items.length; i++) {
+            category.items[i].itemId = i;
+        }
+
+        const success = await updateCategory(party.id, category);
+
+        if (success) {
+            setParty(await getParty(party.id));
+        }
+    };
+
+    const onGuestCreated = async (guest) => {
+        const success = await createGuest(party.id, guest);
+
+        if (success) {
+            setParty(await getParty(party.id));
+        }
+    };
+
+    const onGuestDeleted = async (guestId) => {
+        const success = await deleteGuest(party.id, guestId);
+
+        if (success) {
+            setParty(await getParty(party.id));
+        }
+    }
+
     const onUpdatePartyInfo = async (partyInfo) => {
         const success = await updatePartyInfo(party.id, partyInfo);
 
@@ -53,8 +89,8 @@ function App() {
             {!party && <CreateParty onCreateNewParty={createNewParty} />}
             {party && <button onClick={() => setParty(null)}>Reset partyId</button>}
             {party && <PartyInfo partyInfo={party.info} id={party.id} onUpdatePartyInfo={onUpdatePartyInfo} />}
-            {party && <CategoryList categories={party.categories} onCategoryCreated={onCategoryCreated} />}
-            {party && <GuestList guests={party.guests} />}
+            {party && <CategoryList categories={party.categories} onCategoryCreated={onCategoryCreated} onCategoryDeleted={onCategoryDeleted} onCategoryUpdated={onCategoryUpdate} />}
+            {party && <GuestList guests={party.guests} onGuestCreated={onGuestCreated} onGuestDeleted={onGuestDeleted} />}
         </div>
     );
 }

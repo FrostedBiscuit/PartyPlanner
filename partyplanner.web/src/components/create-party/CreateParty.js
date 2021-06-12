@@ -18,9 +18,7 @@ const CreateParty = ({ onCreateNewParty }) => {
     return (
         <div className='component'>
             <form onSubmit={onSubmit}>
-                <label htmlFor='partyName'>Name: </label>
-                <br />
-                <br />
+                <h2>Enter Party name:</h2>
                 <input type='text' name='partyName' onChange={(e) => setPartyName(e.target.value)} value={partyName} placeholder='Party name' id='partyName' />
                 <br />
                 <br />
