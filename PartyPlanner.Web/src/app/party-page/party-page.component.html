@@ -8,6 +8,7 @@
     <div class="btnMedium1" (click)="createParty(partyName.value)">Create</div>
 </div>
 <div *ngIf="!validPartyId" class="content">
+   
     <h1 class="naslovi">Check existing party</h1>
     <p class="text">Enter party id</p>
         <input #partyid type="text" placeholder="Party ID" class="inputi">
@@ -16,8 +17,9 @@
     
     <div class="btnMedium3">
     <p class="text">Scan QR <i class="fas fa-qrcode"></i></p>
-    <zxing-scanner [formats]="['QR_CODE']" (scanSuccess)="onCodeResult($event)" ></zxing-scanner>
     </div>
+
+    <zxing-scanner id="scanner" [formats]="['QR_CODE']" (scanSuccess)="onCodeResult($event)" ></zxing-scanner>
 
 </div>
 

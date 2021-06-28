@@ -16,7 +16,7 @@ export class CalculatePageComponent implements OnInit {
   party:Party;
   guestLen:number;
   totalBudget:number = 0;
-  perPerson:number = 0;
+  perPerson:string = "0";
   categoryBudget = [];
 
   constructor(private router: Router,private _ppRest:ppRestService) { 
@@ -54,10 +54,11 @@ export class CalculatePageComponent implements OnInit {
       })
 
       this.categoryBudget.push({name: category.name, price: sum})
-      this.totalBudget+=sum;
+      this.totalBudget += sum;
+      this.totalBudget += Number(this.party.info.budget);
     })
 
-    this.perPerson=this.totalBudget/this.guestLen;
+    this.perPerson=(this.totalBudget / this.guestLen).toFixed(2);
   }
 
 
