@@ -1,10 +1,9 @@
-import { stringify } from '@angular/compiler/src/util';
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+
+import { Component, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
-import { GlobalConstants } from '../GlobalConstants';
+
 import { ppRestService} from '../services/ppRest.services';
-import { Party } from '../party'
+import { Party,Category } from '../party'
 @Component({
   selector: 'app-party-page',
   templateUrl: './party-page.component.html',
@@ -14,6 +13,7 @@ export class PartyPageComponent implements OnInit {
  
   
   partyId: String = localStorage.getItem('partyId');
+  party: Party;
   validPartyId: boolean = false;
   
 
@@ -28,17 +28,58 @@ export class PartyPageComponent implements OnInit {
    }
 
   ngOnInit(): void {
+  
   }
+
+
   createParty(partyName:string) {
-    //this._ppRest.getParty().subscribe((result)=>{
-    //  console.warn(result)
-    //})
-    this._ppRest.putParty(partyName).subscribe((result: Party)=>{
-      this.partyId=result.id;
+
+    this._ppRest.putParty(partyName).subscribe(
+      (result: Party)=>{
+        this.partyId=result.id;
+        this.party=result;
+        localStorage.setItem('partyId', result.id);
+        this.validPartyId=true; 
+        console.log(result);
+
+        //Addin default categories FOOD,DRINKS
+        this.partyAddDefaultCategories();
+
+      }),error => {
+        alert("Party can't be created");
+        console.log(error);
+      }
+      
+  }
+
+  partyAddDefaultCategories(){
+    this.createCategory("Food");
+    this.createCategory("Drinks");
+
+  }
+
+  createCategory(categoryName: String){
+    let category= new Category;
+    category.name=categoryName;
+    category.items=[];
+    this._ppRest.putCategory(this.partyId,category).subscribe(
+      (data:Category) => {
+      
+      },
+      error => {
+        console.log(error);
+      });
+  }
+
+  checkParty(partyId:string){
+    this._ppRest.getPartyById(partyId).subscribe((result: Party)=>{
       localStorage.setItem('partyId', result.id);
       this.validPartyId=true;
-      
-    })
+      console.log(result);
+    },
+    error => {
+      console.log('error');
+    }); 
   }
   onTextBtnClick(arg: string){
   
@@ -47,5 +88,18 @@ export class PartyPageComponent implements OnInit {
     if(arg=='ITEMS') this.router.navigate(['/categoryList'])
 
     if(arg=='PLACE') this.router.navigate(['/place'])
+
+    if(arg=='SHARE') this.router.navigate(['/share'])
+
+    if(arg=='CALCULATE') this.router.navigate(['/calculate'])
+
+  }
+  onCodeResult(resultString: string) {
+    if (window.confirm('Do you want to check this party?: '+resultString))
+      {
+        this.checkParty(resultString);
+      }
+      
+    
   }
 }

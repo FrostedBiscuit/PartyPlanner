@@ -1,0 +1,37 @@
+<div class="content">
+    <p class="text-mali">PLAN FOR:</p>
+    <h1 class="naslov">{{party.info.name}}</h1>
+    <hr>
+
+    <div class="posebi">
+        <p class="kategorije">{{party.info.address}} <b>{{party.info.budget}}€</b> </p>
+        <img class="icon" src="../../assets/images/Pin.svg" alt="Pin icon">
+    </div>
+
+    <!-- ITEM LIST -->
+    <div  *ngFor="let category of categoryBudget" class="posebi">
+            <p class="kategorije" style="text-align: left;">{{category.name}} <b> {{category.price}}€ </b> </p>
+            <img class="icon" src="../../assets/images/Beer.svg" alt="Beer icon">
+    </div>
+
+    <!-- GUEST LIST -->
+    <div class="posebi">
+        <p class="kategorije"> People invited <b>  {{ guestLen }} </b></p>
+        <img class="icon" src="../../assets/images/Person.svg" alt="Person icon">
+    </div>
+</div>
+<div class="content">
+    <!-- TOTAL -->
+    <div>
+        <p class="text">TOTAL</p>
+        <p class="text2">TOTAL {{ totalBudget }} €</p>
+        <p class="text2">GUEST {{ guestLen }}</p>
+        <p class="text2">PER PERSON = {{ perPerson }} €</p>
+    </div>
+</div>
+
+<div class="footer-back">
+    <div class="btnSmall" style="float:left; margin-left: 21px;" (click)="backToParty()">
+        <img src="../../assets/images/Back.svg" style="width: 12px; height: auto;">
+    </div>
+</div>

@@ -1,16 +1,20 @@
+<!-- *CART & SEARCH* bomo vidl kva bomo z temu
 <div class="header" style="display: block; padding-bottom: 40px;">
     <div class="btnMedium" style="float:left; background-color: aqua;" (click)="shopping()">
         <img src="../../assets/images/Cart.svg" width="30px" height="30px" style="background-color: aqua;">
     </div>
     <input style="float:right; width:100px; margin:0px" type="text" placeholder="Search">
 </div>
+-->
 
 <div style="height:600px; width:100%; overflow-y:auto; padding-bottom:100px;">
     <div class="content">
         <input #name style="float: left; width:150px;"  type="text" placeholder="Item">
+
         <!-- <h2 style="float: right;">14€</h2> -->
-        <p style="float: right;">€</p>
-        <input #price style="float: right; margin-top: 15px; width:60px; height:5px;" type="number" placeholder="0.00">
+        <span class="input-symbol-euro">
+            <input #price style="float: right; margin-top: 15px; width:60px; height:5px;" type="number" placeholder="0.00">
+        </span>
         <br style="clear:both;">
         <input #description type="text" placeholder="Description">
         <div class="box" style="float: left;">
@@ -18,47 +22,25 @@
             <p class="child">{{ addNewQuantity }}</p>
             <img class="child" src="../../assets/images/Plus.svg" alt="Plus" width="50px" (click)="quantityUp()">
         </div>
-        <div class="btnMedium" style="float: right;  margin-top:10px;" (click)="createItem(name.value,description.value,price.value)"> ADD TO LIST</div>
+        <div class="btnMedium-add"  (click)="createItem(name.value,description.value,price.value);name.value='';description.value='';price.value='0.00'"> ADD </div>
+        
         <br style="clear:both">
     </div>
 
-    <app-item-item
-        [price]="12.4"
-        [quantity]="1"
-        [name]="'Vodka'"
-        [text]="'Absolut vodka 1,00L'"
-    ></app-item-item>
-    <!-- <app-item-item
-        [price]="24.4"
-        [quantity]="2"
-        [name]="'Jameson'"
-        [text]="'1,00L'"
-    ></app-item-item>
-    <app-item-item
-        [price]="17.2"
-        [quantity]="2"
-        [name]="'Gin'"
-        [text]="'Ping gin 1L'"
-    ></app-item-item>
-    <app-item-item
-        [price]="17.2"
-        [quantity]="2"
-        [name]="'Gin'"
-        [text]="'Ping gin 1L'"
-    ></app-item-item>
-    <app-item-item
-        [price]="17.2"
-        [quantity]="2"
-        [name]="'Gin'"
-        [text]="'Ping gin 1L'"
-    ></app-item-item> -->
+
+    <app-item-item *ngFor="let item of itemList" (deleteItem)="deleteItem(item)"
+        [item]="item"
+        [price]="item.price"
+        [quantity]="item.quantity"
+        [name]="item.name"
+        [text]="item.description"></app-item-item>   
 
 </div>
 
 
 
 <!-- Overlaying shopping div -->
-<div id="overlay" (click)="off()">
+<!-- <div id="overlay" (click)="off()">
     
     <div class="btnMedium"(click)="off()" style="right:0;">
         x
@@ -89,14 +71,11 @@
             </tr>
         </td>
     </table>
-</div>
+</div> -->
 <!-- end of shopping div -->
 
 <div class="footer">
-    <div class="btnSmall" style="float:left; margin-right: 40px;" (click)="party()">
-        <p><</p>
-    </div>
-    <div class="btnBig" style="float:right; margin:0px 20px 20px 0px">
-        <p>SHOPPING LIST</p>
+    <div class="btnSmall" style="margin-left: 21px;" (click)="party()">
+        <img src="../../assets/images/Back.svg" style="width: 12px; height: auto;">
     </div>
 </div>

@@ -15,7 +15,7 @@ export class CategoryItemComponent implements OnInit {
   @Input() category: Category;
 
   constructor(private router: Router,private _ppRest: ppRestService) { 
-    console.log(this.category);
+    
   }
 
   ngOnInit(): void {

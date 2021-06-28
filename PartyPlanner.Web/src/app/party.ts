@@ -9,10 +9,13 @@ export class Party {
 }
 
 export class Info{
-    budget: Number;
-    description: String;
     name: String;
-    partyDate: Date;
+    description: String;
+    address:String;
+    exactDirections:String;    
+    dateFrom: Date;
+    dateTo: Date;
+    budget: Number;
 }
 
 export class GuestBody{
@@ -33,6 +36,8 @@ export class Guest{
     vegan: boolean;
     vegetarian: boolean;//aka fegetalac
     nonDrinker: boolean;//verjetno pičkica
+    paid:boolean;
+    host:boolean;
 }
 
 export class CategoryBody{

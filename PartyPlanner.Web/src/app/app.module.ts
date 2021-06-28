@@ -20,7 +20,12 @@ import { ShoppingItemComponent } from './shopping-item/shopping-item.component';
 
 import { ppRestService }  from './services/ppRest.services';
 import { CategoryItemComponent } from './category-item/category-item.component';
-import { CategoryListPageComponent } from './category-list-page/category-list-page.component'
+import { CategoryListPageComponent } from './category-list-page/category-list-page.component';
+import { SharePageComponent } from './share-page/share-page.component'
+
+import { QRCodeModule } from 'angularx-qrcode';
+import { ZXingScannerModule } from '@zxing/ngx-scanner';
+import { CalculatePageComponent } from './calculate-page/calculate-page.component';
 
 
 
@@ -39,7 +44,9 @@ import { CategoryListPageComponent } from './category-list-page/category-list-pa
     ShoppingListPageComponent,
     ShoppingItemComponent,
     CategoryItemComponent,
-    CategoryListPageComponent
+    CategoryListPageComponent,
+    SharePageComponent,
+    CalculatePageComponent
     
   ],
   imports: [
@@ -47,7 +54,9 @@ import { CategoryListPageComponent } from './category-list-page/category-list-pa
     AppRoutingModule,
     CommonModule,
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    QRCodeModule,
+    ZXingScannerModule
     
    
   ],
