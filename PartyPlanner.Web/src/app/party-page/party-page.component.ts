@@ -1,6 +1,6 @@
 
 import { Component, OnInit} from '@angular/core';
-import { Router } from '@angular/router';
+import { Router,ActivatedRoute } from '@angular/router';
 
 import { ppRestService} from '../services/ppRest.services';
 import { Party,Category } from '../party'
@@ -11,15 +11,20 @@ import { Party,Category } from '../party'
 })
 export class PartyPageComponent implements OnInit {
  
-  
-  partyId: String = localStorage.getItem('partyId');
+ 
+  partyId: string = localStorage.getItem('partyId');
   party: Party;
   validPartyId: boolean = false;
   
 
 
-  constructor(private router: Router,private _ppRest:ppRestService) {
+  constructor(private activatedRouter: ActivatedRoute,private router: Router,private _ppRest:ppRestService) {
     console.log(this.partyId)
+    if(this.activatedRouter.snapshot.queryParamMap.get('id') != null){
+      this.partyId = this.activatedRouter.snapshot.queryParamMap.get('id')
+      localStorage.setItem('partyId',this.partyId)
+    }
+
     if (this.partyId === null){
       this.validPartyId=false;
     }else{

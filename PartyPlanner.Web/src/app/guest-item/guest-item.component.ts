@@ -28,7 +28,7 @@ export class GuestItemComponent implements OnInit {
     this.guest.host = !this.guest.host;
   }
 
-  toggle(){
+  toggleVegetarian(){
     this.guest.vegetarian =!this.guest.vegetarian;
   }
 
