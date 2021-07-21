@@ -1,0 +1,81 @@
+<p>NAME OF HOST</p>
+<p>INVITED YOU TO THE</p>
+<p>{{this.party.info.name}}</p>
+
+<div class="content">
+    <input style="width:90%;"  type="text" placeholder="Add your name and surname">
+    <p class="spanText">Your name will be displayed to other party members</p> 
+<p>PARTY DETAILS</p>
+    <div class="flex-container">
+        <div class="flex-child">
+            <p>Date {{this.party.info.dateFrom}}</p>
+            <p>{{this.party.info.address}}</p>
+            <p>{{this.party.info.exactDirections}}</p>
+            
+        </div>
+        <div class="flex-child">
+            <p>Hour {{this.party.info.dateFrom}}</p>
+            <p>{{this.party.info.description}}</p>
+        </div>
+    </div>
+    <div class="flex-container fixedBottom">
+        <div class="flex-child">
+            <div class="content" (click)="changeGoing(false)">
+                X
+            </div>
+        </div>
+        <div class="flex-child">
+            <div class="content" (click)="changeGoing(true)">
+                idemo
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="going === false">
+    <p>image placeholder</p>
+    <p>image placeholder</p>
+    <p>image placeholder</p>
+    <p>image placeholder</p>
+    <p>image placeholder</p>
+    <p>image placeholder</p>
+</div>
+<div *ngIf="going === true">
+    <div class="content">
+        <p class="boldedText">Enter your email <span class="spanText">you will receive your ticket via email</span></p>
+        <input style="width:90%;"  type="text" placeholder="enter@email.com"> 
+    </div>
+    <div class="content flex-container" >
+        <div class="flex-child">
+            <p>How picky are you?</p>
+        </div>
+        <div class="flex-child">
+            <img *ngIf="vegetarian" class="child icon" src="../../assets/images/Meat_yes.svg" alt="meat eater" (click)="toggleVegetarian()">
+            <img *ngIf="!vegetarian" class="child icon" src="../../assets/images/Meat_no.svg" alt="non meat eater" (click)="toggleVegetarian()">
+
+            <img *ngIf="vegan" class="child icon" src="../../assets/images/vegan_yes.svg" alt="vegan" (click)="toggleVegan()">
+            <img *ngIf="!vegan" class="child icon" src="../../assets/images/vegan_no.svg" alt="non vegan" (click)="toggleVegan()">
+
+            <img *ngIf="nonDrinker" class="child icon" src="../../assets/images/drinker_yes.svg" alt="drinker" (click)="toggleDrinker()">
+            <img *ngIf="!nonDrinker" class="child icon" src="../../assets/images/drinker_no.svg" alt="non drinker" (click)="toggleDrinker()">
+        </div>
+    </div>
+    <div class="flex-container">
+        <div class="flex-child">
+            <img class="child icon" src="../../assets/images/Meat_yes.svg" alt="meat eater">
+            <span class="spanText">I eat meat</span>
+        </div>
+        <div class="flex-child">
+            <img class="child icon" src="../../assets/images/drinker_yes.svg" alt="drinker">
+            <span class="spanText">I drink alchol</span>
+        </div>
+        <div class="flex-child">
+            <img class="child icon" src="../../assets/images/vegan_yes.svg" alt="vegan">
+            <span class="spanText">I eat vegan</span>
+        </div>
+        
+    </div>
+    <div class="content">
+        ENTER PARTY
+    </div>
+</div>

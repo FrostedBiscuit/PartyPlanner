@@ -12,18 +12,20 @@ import { SharePageComponent } from './share-page/share-page.component';
 import { ShoppingItemComponent } from './shopping-item/shopping-item.component';
 import { ShoppingListPageComponent } from './shopping-list-page/shopping-list-page.component';
 import { CalculatePageComponent } from './calculate-page/calculate-page.component';
+import { InvitePageComponent } from './invite-page/invite-page.component';
 
 const routes: Routes = [
   { path: '', component: LandingPageComponent },
   { path: 'budget', component: BudgetPageComponent },
   { path: 'party', component: PartyPageComponent },
   { path: 'guest', component: GuestListPageComponent },
-  { path: 'items/:id', component: ItemsListPageComponent },
   { path: 'place', component: PlacePageComponent },
   { path: 'shoppingList', component: ShoppingListPageComponent},
   { path: 'categoryList', component: CategoryListPageComponent},
   { path: 'share', component: SharePageComponent},
-  { path: 'calculate', component: CalculatePageComponent}
+  { path: 'calculate', component: CalculatePageComponent},
+  { path: 'items/:id', component: ItemsListPageComponent },
+  { path: 'invite/:id', component: InvitePageComponent},
 ];
 
 @NgModule({

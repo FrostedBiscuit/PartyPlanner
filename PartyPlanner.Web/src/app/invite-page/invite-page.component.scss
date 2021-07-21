@@ -1,0 +1,26 @@
+.flex-container {
+    display: flex;
+}
+
+.flex-child {
+    flex: 1;
+}  
+
+.boldedText {
+    font-family: 'Raleway','ExtraBold';
+    font-size: 15pt;
+    color: #FFFFFF;
+}
+
+.spanText {
+    font-family: 'Raleway','Regular';
+    font-size: 7pt;
+    color:#A0A0A0;
+}
+
+.icon {
+    float:left; 
+    margin: 4px 4px 3px 8px; 
+    width: 24px; 
+    height: 24px;
+}
