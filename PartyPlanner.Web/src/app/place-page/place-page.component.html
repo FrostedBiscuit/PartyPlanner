@@ -7,28 +7,27 @@
     <input #address type="text" placeholder="Street address and building number" value="{{ partyInfo.address }}">
     <input #exactDirections type="text" placeholder="Staircase / apartment / floor / other " value="{{ partyInfo.exactDirections }}" > 
 
-    <p class="mali">START DAY</p>
+    <p class="mali">START DATE</p>
         <input  #dateFrom type="datetime-local" value="{{ dateFromStr }}">
-
-    <p class="multiple" >MULTIPLE DAYS <input class="klukca" type="checkbox" (change)="multiDays($event)"></p> 
-     
-    <div *ngIf="isChecked">   
-        <p class="mali">END DAY</p>
-            <input #dateTo type="datetime-local"  value="{{ dateToStr }}">   
-</div>
+    
+    <!-- TODO STYLE THIS -->
+    <p class="mali">DAYS</p>
+        <input #days type="number" placeholder="1" value="{{ daysStr }}">
+    <!--TODO STYLE THIS-->
+    <p>DESCRIPTION</p>
+        <input #description type="text" placeholder="This party will be BLAST. Take swiming trunks and slippers." value="{{ partyInfo.description }}">
 
     <p style="text-align: left; padding-left: 8px; margin-bottom: 6px; font-weight: 600; margin-top: 40px;">Location Price</p>
     <span class="input-symbol-euro">
         <input #budget type="text" placeholder="120" value="{{ partyInfo.budget }}" style="width:30% ;float: left;">   
     </span>
-        <!--<input type="text" placeholder="1day"  style="width:10% ; float: left;"> Koliko dni za dodat kopirano iz item-item plus minus-->
 </div>
 
 <div class="footer">
     <div class="btnSmall" style="float:left;" (click)="party()">
         <img src="../../assets/images/Back.svg" style="width: 12px; height: auto;">
     </div>
-    <div class="btnSmall-save" style="float: right;" (click)="createPartyInfo(name.value,null,address.value,exactDirections.value,dateFrom.value,null,budget.value)">
+    <div class="btnSmall-save" style="float: right;" (click)="createPartyInfo(name.value,description.value,address.value,exactDirections.value,dateFrom.value,days.value,budget.value)">
         <p>SAVE</p>
     </div>
 </div>
