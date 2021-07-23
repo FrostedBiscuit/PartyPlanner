@@ -15,6 +15,9 @@ export class InvitePageComponent implements OnInit {
   party: Party;
   going: boolean;
 
+  date: String;
+  time: String;
+
   host: boolean = false;
   vegetarian: boolean = false;
   vegan:boolean = false;
@@ -29,7 +32,7 @@ export class InvitePageComponent implements OnInit {
 
     this.checkParty(this.partyId);
 
-    console.log(this.partyId)
+    
   }
 
   ngOnInit(): void {
@@ -55,7 +58,7 @@ export class InvitePageComponent implements OnInit {
     guest.vegan=this.vegan;
     guest.vegetarian=this.vegetarian;
     guest.paid = this.paid;
-    
+
     console.log(guest);
   
     this._ppRest.postGuest(this.partyId,guest).subscribe(
@@ -73,9 +76,12 @@ export class InvitePageComponent implements OnInit {
       localStorage.setItem('partyId', result.id);
       this.party = result;
       console.log(result);
+      const conDate = new Date(this.party.info.dateFrom)
+      this.date = conDate.getDate()+"."+conDate.getMonth()+"."+conDate.getFullYear()
+      this.time = conDate.getHours()+":"+conDate.getMinutes()
     },
     error => {
-      console.log('error');
+      alert('Please try again');
     }); 
   }
 
