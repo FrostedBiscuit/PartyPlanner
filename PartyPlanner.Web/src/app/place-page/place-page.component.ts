@@ -55,18 +55,11 @@ export class PlacePageComponent implements OnInit {
 
     this._ppRest.postPartyDetails(this.partyId,this.partyInfo).subscribe(
       (result: String)=>{
-            
+        this.router.navigate(['/party'])     
       },
       error => {
-
-        console.log("Sending failed!");
-      
+        alert("Saving failed!");
     })
  
   }
-
-  party(){
-    this.router.navigate(['/party'])
-  }
-
 }
