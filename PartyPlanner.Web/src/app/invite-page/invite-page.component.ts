@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router,ActivatedRoute, Params } from '@angular/router';
 
 import { ppRestService} from '../services/ppRest.services';
-import { Party,Category } from '../party'
+import { Party,Guest } from '../party'
 
 @Component({
   selector: 'app-invite-page',
@@ -33,6 +33,39 @@ export class InvitePageComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  enterParty(name:string,email:string){
+    // TODO CHECKING
+    if(name === ""){
+      alert("name is empty");
+      return;
+    }
+    // TODO CHECKING
+    if(email === ""){
+      alert("email is empty");
+      return;
+    }
+
+    let guest= new Guest;
+    
+    guest.name=name;
+    guest.email=email;
+    guest.nonDrinker=this.nonDrinker;
+    guest.vegan=this.vegan;
+    guest.vegetarian=this.vegetarian;
+    guest.paid = this.paid;
+    
+    console.log(guest);
+  
+    this._ppRest.postGuest(this.partyId,guest).subscribe(
+      (data: Guest) => {
+        this.router.navigate(['/party']); 
+      },
+      error => {
+        console.log('error');
+    }); 
+   
   }
 
   checkParty(partyId:string){

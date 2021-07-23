@@ -1,11 +1,11 @@
-<p>NAME OF HOST</p>
-<p>INVITED YOU TO THE</p>
+<p>YOU HAVE BEEN</p>
+<p>INVITED TO THE</p>
 <p>{{this.party.info.name}}</p>
 
 <div class="content">
-    <input style="width:90%;"  type="text" placeholder="Add your name and surname">
+    <input #name style="width:90%;"  type="text" placeholder="Add your name and surname">
     <p class="spanText">Your name will be displayed to other party members</p> 
-<p>PARTY DETAILS</p>
+    <p>PARTY DETAILS</p>
     <div class="flex-container">
         <div class="flex-child">
             <p>Date {{this.party.info.dateFrom}}</p>
@@ -33,17 +33,12 @@
 </div>
 
 <div *ngIf="going === false">
-    <p>image placeholder</p>
-    <p>image placeholder</p>
-    <p>image placeholder</p>
-    <p>image placeholder</p>
-    <p>image placeholder</p>
-    <p>image placeholder</p>
+    <img src="../../assets/images/PP_logotip.svg" alt="Not going">
 </div>
 <div *ngIf="going === true">
     <div class="content">
         <p class="boldedText">Enter your email <span class="spanText">you will receive your ticket via email</span></p>
-        <input style="width:90%;"  type="text" placeholder="enter@email.com"> 
+        <input #email style="width:90%;"  type="text" placeholder="enter@email.com"> 
     </div>
     <div class="content flex-container" >
         <div class="flex-child">
@@ -75,7 +70,7 @@
         </div>
         
     </div>
-    <div class="content">
+    <div class="content" (click)="enterParty(name.value,email.value)">
         ENTER PARTY
     </div>
 </div>
