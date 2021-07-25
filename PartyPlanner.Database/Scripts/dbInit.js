@@ -8,7 +8,7 @@ db.getSiblingDB(database);
 
 // Create app user
 db.createUser({
-	user: username,
+    user: username,
     pwd: password,
     roles: [
         {
