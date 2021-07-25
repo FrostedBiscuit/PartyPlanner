@@ -1,7 +1,7 @@
 <div style="text-align: center; margin-top: 30%;" *ngIf="visible">
-    <img id="logoimage" src="../../assets/images/PP_logo.svg" >
+    <img id="logoimage" src="../../assets/images/PP_logotip.svg" style="margin-top: 50%; width: 70%;" >
     <div style="position: fixed; bottom: 0px; width: 100%;">
-        <p style="margin: 0 auto;">by CoffeeGrainStudio</p>
+        <p style="margin: 0 auto; margin-bottom: 20px; font-size: small;">by CoffeeGrainStudio</p>
     </div>
 </div>
 
@@ -10,22 +10,15 @@
 <div class="content" *ngIf="!visible" (click)="party()">
     <img src="../../assets/images/Beer.svg">
     <h1>PARTY</h1>
-    <p> Invite friends, choose the drinks,</p>
-    <p> determine the location,</p>
-    <p> and in the end you get,</p>
-    <p>how much each person pays.</p>
+    <p style="font-weight:500;"> Invite your friends<br>
+    Select the drinks,<br>
+    Determine the location,<br>
+    Split the bill.</p>
 </div>
 <div class="content" *ngIf="!visible" (click)="budget()">
-    <img src="../../assets/images/Coin.svg">
+    <img src="../../assets/images/coin_neon.svg">
     <h1>BUDGET</h1>
-    <p>Determine how much money</p>
-    <p>you have, then choose</p>
-    <p>the drinks, location, and so on.</p>
+    <p style="font-weight:500;">Determine how much money<br>
+    you have, then choose<br>
+    the drinks, location, and so on.</p>
 </div> 
-
-
-
-        
-       
-   
-

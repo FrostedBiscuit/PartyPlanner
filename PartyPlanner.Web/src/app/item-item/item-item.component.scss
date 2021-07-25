@@ -1,8 +1,28 @@
 .box{
     display: flex;
     justify-content: space-between; 
+    margin-left: -6px;
 }
 
 .child{   
     display: inline-block;
 }
+
+.input-symbol-euro {
+    position: relative;
+    display: inline-block;
+    width: 39%;
+  }
+  
+  .input-symbol-euro input {
+    padding-right: 15px;
+    width: 100%;
+  }
+  
+  .input-symbol-euro:after {
+    position: absolute;
+    top:40%;
+    margin: auto;
+    content: "€";
+    right: 15px;
+  }

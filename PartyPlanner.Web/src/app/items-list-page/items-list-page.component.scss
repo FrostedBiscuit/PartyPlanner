@@ -48,3 +48,37 @@ table p{
     color: black;
 }
 
+.input-symbol-euro {
+    position: relative;
+    display: inline-block;
+    width: 39%;
+  }
+  
+  .input-symbol-euro input {
+    padding-right: 15px;
+    width: 100%;
+  }
+  
+  .input-symbol-euro:after {
+    position: absolute;
+    top:40%;
+    margin: auto;
+    content: "€";
+    right: 15px;
+  }
+
+  .btnMedium-add{
+    width: 90px;
+    height: 40px;
+    background-Color: #303138;
+    color: white;
+    font-Size: 12px;
+    border-Radius: 30px;
+    box-Shadow: 3px 3px 6px #23242A, -3px -3px 6px #3B3D44;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    flex-wrap: wrap; 
+    float: right;
+    margin: 10px;
+  }

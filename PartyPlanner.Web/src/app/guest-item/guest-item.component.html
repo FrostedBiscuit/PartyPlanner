@@ -1,27 +1,37 @@
 <div class="container">
+    
+    
     <!-- Pokaže se samo ena ta slika glede na spremenljivko host -->
+    <!-- SE BOMO ZMENIL KO SE BO TO ZRIHTAL ZA UNGA K HOUSTA
     <img *ngIf="host" class="child icon" src="../../assets/images/Party_yes.svg" alt="party hat on" (click)="toggleHost()">
     <img *ngIf="!host"  class="child icon" src="../../assets/images/Party_no.svg" alt="party hat off"(click)="toggleHost()"> 
-    
-    <h2 class="child">{{ name }}</h2>
+    -->
 
+    <h2 class="child" >{{ guest.name }}</h2>
+    <h2 class="child2" >{{ guest.email }}</h2>
     
-    <div class="btnSmall" style="float:right; margin-top:25px;" (click)="deleteGuest()">
-        <p>X</p>
+
+    <hr class="crta">
+    
+    <div style="float:right; margin:15px;" (click)="deleteGuest()">
+        <img src="../../assets/images/X.svg" style="width: 20px; height: 20px; margin: 0px;">
     </div>
     
-    <!-- Pokaže se samo ena ta slika glede na spremenljivko paid -->
-    <div *ngIf="paid" class="btnSmall" style="float:right; margin-top:25px; background-color: greenyellow;" (click)="togglePaid()">
-        <p style="background-color: greenyellow; color:black;">Paid</p>
-    </div>
-    <div *ngIf="!paid" class="btnSmall" style="float:right; margin-top:25px;" (click)="togglePaid()">
-        <p>Paid</p>
-    </div>
     
-    <!-- Pokaže se samo ena ta slika glede na spremenljivko host -->
-    <img *ngIf="meat" class="child icon" style="float:right; margin-top: 20px; margin-right: 5px;" src="../../assets/images/Meat_yes.svg" alt="meat eater" (click)="toggleMeat()">
-    <img *ngIf="!meat" class="child icon" style="float:right; margin-top: 20px; margin-right: 5px;" src="../../assets/images/Meat_no.svg" alt="non meat eater" (click)="toggleMeat()">
-    <br>
+    <div style="margin-top: 8px; width: 70%;">
+        
+            <img *ngIf="this.guest.vegetarian" class="child icon" style="float:left; margin: 4px 4px 3px 8px; width: 24px; height: 24px;" src="../../assets/images/Meat_yes.svg" alt="meat eater" (click)="toggleVegetarian()">
+            <img *ngIf="!this.guest.vegetarian" class="child icon" style="float:left; margin: 4px 4px 3px 8px; width: 24px; height: 24px;" src="../../assets/images/Meat_no.svg" alt="non meat eater" (click)="toggleVegetarian()">
+
+            <img *ngIf="this.guest.vegan" class="child icon" style="float:left; margin: 4px 4px 3px 4px; width: 24px; height: 24px;" src="../../assets/images/vegan_yes.svg" alt="vegan" (click)="toggleVegan()">
+            <img *ngIf="!this.guest.vegan" class="child icon" style="float:left; margin: 4px 4px 3px 4px; width: 24px; height: 24px;" src="../../assets/images/vegan_no.svg" alt="non vegan" (click)="toggleVegan()">
+
+            <img *ngIf="this.guest.nonDrinker" class="child icon" style="float:left; margin: 4px 4px 3px 4px; width: 24px; height: 24px;" src="../../assets/images/drinker_yes.svg" alt="drinker" (click)="toggleDrinker()">
+            <img *ngIf="!this.guest.nonDrinker" class="child icon" style="float:left; margin: 4px 4px 3px 4px; width: 24px; height: 24px;" src="../../assets/images/drinker_no.svg" alt="non drinker" (click)="toggleDrinker()">
+    
+            <img *ngIf="this.guest.paid" class="child icon" style="float:left; margin: 4px 10px 3px 4px; width: 24px; height: 24px;" src="../../assets/images/Paid_yes.svg" alt="have paid" (click)="togglePaid()">
+            <img *ngIf="!this.guest.paid" class="child icon" style="float:left; margin: 4px 10px 3px 4px; width: 24px; height: 24px;" src="../../assets/images/Paid_no.svg" alt="has not paid" (click)="togglePaid()">
+       
+    </div>
     
 </div>
-

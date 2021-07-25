@@ -12,37 +12,59 @@ export class GuestListPageComponent implements OnInit {
   partyId: String = localStorage.getItem('partyId');
   guestList: Guest[];
 
-  addNewVisible: boolean = false;
+  contetVisible: boolean = false;
 
   host: boolean = false;
-  meat: boolean = false;
+  vegetarian: boolean = false;
+  vegan:boolean = false;
+  nonDrinker:boolean = false;
   paid: boolean = false;
+
 
   constructor(private router: Router,private _ppRest: ppRestService) { 
     this._ppRest.getGuestList(this.partyId).subscribe((result:GuestBody)=>{
-      console.log(result);
+
       this.guestList=result.guests;
+
+      this.contetVisible=this.guestList.length>0;
+
     });
   }
 
   ngOnInit(): void {
   }
 
-  postGuest(name:String){
+  postGuest(name:String,email:String){
+    if(name==""){
+      alert("name is empty");
+      return;
+    }
+
     let guest= new Guest;
-    //guest.guestId=0;
+    
     guest.name=name;
     //guest.surname="Kovic";
-    //guest.email="blazCar@gmail.com";
-    guest.nonDrinker=this.host;
+    guest.email=email;
+    guest.nonDrinker=this.nonDrinker;
     //guest.phone="030444555";
-    guest.vegan=this.meat;
-    guest.vegetarian=this.paid;
+    guest.vegan=this.vegan;
+    guest.vegetarian=this.vegetarian;
+    guest.paid = this.paid;
     console.log(guest);
     this._ppRest.postGuest(this.partyId,guest).subscribe(
-      data => {
-        //this.reloadCurrentRoute()
-        this.guestList.push(guest)
+      (data: Guest) => {
+        
+
+        this.guestList.push(data);
+
+        //reset datafields
+        this.host = false;
+        this.vegetarian = false;
+        this.paid = false;      
+        this.vegan = false;
+        this.nonDrinker= false;
+        
+        this.contetVisible=this.guestList.length>0;
       },
       error => {
         console.log('error');
@@ -54,20 +76,26 @@ export class GuestListPageComponent implements OnInit {
     this.router.navigate(['/party']) 
   }
 
-  addGuest(){
-    this.addNewVisible = !this.addNewVisible;
-  }
+ 
 
   toggleHost(){
     this.host = !this.host;
   }
 
-  toggleMeat(){
-    this.meat =!this.meat;
+  toggleVegetarian(){
+    this.vegetarian =!this.vegetarian;
   }
-
+  
   togglePaid(){
     this.paid = !this.paid;
+  }
+
+  toggleVegan(){
+    this.vegan = !this.vegan;
+  }
+
+  toggleDrinker(){
+    this.nonDrinker = !this.nonDrinker;
   }
 
   reloadCurrentRoute() {
