@@ -360,13 +360,13 @@ MigrationBackup/
 # End of https://www.toptal.com/developers/gitignore/api/visualstudio
 
 # Ignore database data
-PartyPlanner.Database/
+PartyPlanner.Database/Data/
+
+# Ignore db auth data
+.env
 
 # Ignore logs
 PartyPlanner.Logs/
-
-# Ignore secrets
-PartyPlanner.Secrets/
 
 # compiled output
 /dist
