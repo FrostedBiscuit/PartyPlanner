@@ -1,5 +1,5 @@
 // Get environment variables
-const database = _getEnv('DATABASE');
+const database = _getEnv('MONGO_INITDB_DATABASE');
 const username = _getEnv('APP_USERNAME');
 const password = _getEnv('APP_PASSWORD');
 

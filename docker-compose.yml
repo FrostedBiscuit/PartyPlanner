@@ -10,7 +10,7 @@ services:
         env_file: .env
         environment: 
             - ConnectionString=$CONN_STRING
-            - DatabaseName=$DATABASE
+            - DatabaseName=$MONGO_INITDB_DATABASE
             - CollectionName=Parties
             - LogFilePath=./logs/rest.log
         ports:
@@ -24,10 +24,6 @@ services:
         container_name: PartyPlanner.DB
         image: mongo
         env_file: .env
-        environment:
-            - MONGO_INITDB_ROOT_USERNAME=$ROOT_USERNAME
-            - MONGO_INITDB_ROOT_PASSWORD=$ROOT_PASSWORD
-            - MONGO_INITDB_DATABASE=$DATABASE
         ports: 
             - "27017:27017"
         restart: always
