@@ -21,6 +21,8 @@ namespace PartyPlanner.Core.Constants
         public static string PartyCollectionName { get; private set; }
 
         public static string LogFilePath { get; private set; }
+        
+        public static string ApiKeyCollectionName { get; private set; } = "ApiKeys";
 
         public static void Init()
         {

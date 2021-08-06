@@ -11,6 +11,7 @@ using PartyPlanner.Core.Managers;
 using PartyPlanner.Core.Managers.Interfaces;
 using PartyPlanner.Core.Repositories;
 using PartyPlanner.Core.Repositories.Interfaces;
+using PartyPlanner.Rest.Middleware;
 
 namespace PartyPlanner
 {
@@ -31,11 +32,14 @@ namespace PartyPlanner
             _client = new MongoClient(PartyPlannerConsts.DBConnectionString);
 
             services.AddSingleton<IPartyRepository, PartyRepository>(sp => new PartyRepository(_client.GetDatabase(PartyPlannerConsts.PartyPlannerDatabaseName)));
+            services.AddSingleton<IApiKeyRepository, ApiKeyRepository>(sp => new ApiKeyRepository(_client.GetDatabase(PartyPlannerConsts.PartyPlannerDatabaseName)));
 
             services.AddScoped<IPartyManager, PartyManager>();
             services.AddScoped<IPartyInfoManager, PartyInfoManager>();
             services.AddScoped<ICategoryManager, CategoryManager>();
             services.AddScoped<IGuestManager, GuestManager>();
+
+            services.AddTransient<IApiKeyManager, ApiKeyManager>();
 
             services.AddControllers();
 
@@ -82,6 +86,8 @@ namespace PartyPlanner
             app.UseRouting();
 
             app.UseAuthorization();
+            
+            app.UseMiddleware<ApiKeyAuthentication>();
 
             app.UseSerilogRequestLogging();
 
