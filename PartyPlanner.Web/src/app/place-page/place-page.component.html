@@ -21,6 +21,14 @@
     <span class="input-symbol-euro">
         <input #budget type="text" placeholder="120" value="{{ partyInfo.budget }}" style="width:30% ;float: left;">   
     </span>
+
+    <p>IMAGES</p>
+        <input type="file" id="imagesInput" multiple="multiple" accept="image/png, image/jpeg" (change)="onFileSelected($event)">
+        <p>PNG and JPEG only</p>
+        <p>Only 3 images!!!</p>
+        <app-slideshow
+            [slides]="slides"
+        ></app-slideshow>
 </div>
 
 <div class="footer">
