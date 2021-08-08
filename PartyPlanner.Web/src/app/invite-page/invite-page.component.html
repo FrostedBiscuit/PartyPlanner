@@ -1,50 +1,63 @@
-<p>YOU HAVE BEEN</p>
-<p>INVITED TO THE</p>
-<p>{{this.party.info.name}}</p>
+<div class="div-title">
+<p class="title">YOU HAVE BEEN INVITED</p>
+<p class="title"> TO THE</p>
+<p class="name-title">{{this.party.info.name}}</p>
+</div>
 
 <div class="content">
-    <input #name style="width:90%;"  type="text" placeholder="Add your name and surname">
+    <input #name style="width:90%; font-size: 15px;"  type="text" placeholder="Add your name and surname">
     <p class="spanText">Your name will be displayed to other party members</p> 
-    <p>PARTY DETAILS</p>
+    <p class="p-details">PARTY DETAILS</p>
     <div class="flex-container">
         <div class="flex-child">
-            <p>Date {{this.date}}</p>
-            <p>{{this.party.info.address}}</p>
-            <p>{{this.party.info.exactDirections}}</p>
-            
+            <p class="date-title" >Date </p>
+            <p class="date"> {{this.date}}</p>
+
         </div>
         <div class="flex-child">
-            <p>Hour {{this.time}}</p>
-            <p>{{this.party.info.description}}</p>
+            <p class="date-title-2" >Hour </p>
+            <p class="date-2">{{this.time}}</p>
         </div>
     </div>
-    <div class="flex-container fixedBottom">
+
+    <div>
+    <p class="date-title" >Location </p>
+    <p style="font-weight: 800; margin: 5px 0px 10px 8px; font-size: 16px;">{{this.party.info.address}}</p>
+    <p style=" margin: -8px 0px 20px 8px;">{{this.party.info.exactDirections}}</p>
+
+    <p class="date-title" >Description </p>
+    <p style="margin: 5px 0px 10px 8px;">{{this.party.info.description}}</p>
+    </div>
+
+    <div class="flex-container fixedBottom" style="margin-top: 40px;">
         <div class="flex-child">
-            <div class="content" (click)="changeGoing(false)">
-                X
+            <div class="no" (click)="changeGoing(false)">
+                <img src="../../assets/images/no.svg" width="20px" height="auto"  style="display: block; margin: auto; padding-top: 10px;" >
             </div>
         </div>
         <div class="flex-child">
-            <div class="content" (click)="changeGoing(true)">
-                idemo
+            <div class="yes" (click)="changeGoing(true)">
+                <img src="../../assets/images/yes.svg" width="30px" height="auto"  style="display: block; margin: auto; padding-top: 5px;">
             </div>
         </div>
     </div>
 </div>
 
 <div *ngIf="going === false">
-    <img src="../../assets/images/PP_logotip.svg" alt="Not going">
+    <img src="../../assets/images/feelsbad.png" alt="Not going" style="display: block; margin: auto;">
 </div>
 <div *ngIf="going === true">
     <div class="content">
-        <p class="boldedText">Enter your email <span class="spanText">you will receive your ticket via email</span></p>
-        <input #email style="width:90%;"  type="text" placeholder="enter@email.com"> 
+        <p class="boldedText">Enter your email <br> <span class="spanText2">you will receive your ticket via email</span> </p>
+        <input #email style="width:90%; font-size: 15px; margin: -5px 0px 11px 7px;"  type="text" placeholder="enter@email.com"> 
+        
     </div>
-    <div class="content flex-container" >
+    <div class="content " >
+        <div class="flex-container" > 
         <div class="flex-child">
-            <p>How picky are you?</p>
+            <p style=" font-size: 16px; margin: 10px 0px 10px 8px; font-weight: 600;"> How picky are you?</p>
         </div>
-        <div class="flex-child">
+        <div class="flex-child" style="margin: 10px 0px 10px 0px ;">
             <img *ngIf="vegetarian" class="child icon" src="../../assets/images/Meat_yes.svg" alt="meat eater" (click)="toggleVegetarian()">
             <img *ngIf="!vegetarian" class="child icon" src="../../assets/images/Meat_no.svg" alt="non meat eater" (click)="toggleVegetarian()">
 
@@ -54,23 +67,27 @@
             <img *ngIf="nonDrinker" class="child icon" src="../../assets/images/drinker_yes.svg" alt="drinker" (click)="toggleDrinker()">
             <img *ngIf="!nonDrinker" class="child icon" src="../../assets/images/drinker_no.svg" alt="non drinker" (click)="toggleDrinker()">
         </div>
-    </div>
+
+    </div> 
     <div class="flex-container">
-        <div class="flex-child">
-            <img class="child icon" src="../../assets/images/Meat_yes.svg" alt="meat eater">
-            <span class="spanText">I eat meat</span>
-        </div>
-        <div class="flex-child">
-            <img class="child icon" src="../../assets/images/drinker_yes.svg" alt="drinker">
-            <span class="spanText">I drink alchol</span>
-        </div>
-        <div class="flex-child">
-            <img class="child icon" src="../../assets/images/vegan_yes.svg" alt="vegan">
-            <span class="spanText">I eat vegan</span>
-        </div>
         
+        <div class="flex-child">
+        <img class="child icon" src="../../assets/images/Meat_yes.svg" alt="meat eater">
+        <span class="spanText" >I eat meat</span>
     </div>
-    <div class="content" (click)="enterParty(name.value,email.value)">
+    <div class="flex-child">
+        <img class="child icon" src="../../assets/images/drinker_yes.svg" alt="drinker">
+        <span class="spanText">I drink alchol</span>
+    </div>
+    <div class="flex-child">
+        <img class="child icon" src="../../assets/images/vegan_yes.svg" alt="vegan">
+        <span class="spanText">I eat vegan</span>
+    </div>
+    
+</div>
+    </div>
+
+    <div class="button" (click)="enterParty(name.value,email.value)">
         ENTER PARTY
     </div>
 </div>
