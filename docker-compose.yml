@@ -19,7 +19,7 @@ services:
         volumes: 
             - ./PartyPlanner.Logs/Rest:/app/logs
         depends_on: 
-          #            - db
+            - db
     db:
         container_name: PartyPlanner.DB
         image: mongo
