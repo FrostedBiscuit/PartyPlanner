@@ -60,7 +60,6 @@ export class ppRestService
         return this.httpClient.put("/api/Category/"+partyId,category,{ headers: this.headers});
     }
     postCategory(partyId: String,category:Category){
-        console.log(category)
         return this.httpClient.post("/api/Category/"+partyId,category,{ headers: this.headers});
     }
 

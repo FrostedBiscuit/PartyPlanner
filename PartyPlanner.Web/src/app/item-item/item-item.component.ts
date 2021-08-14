@@ -7,26 +7,29 @@ import { Item } from '../party'
 })
 export class ItemItemComponent implements OnInit {
   @Input () item: Item;
-  @Input () price: number = 0.00;
-  @Input () quantity: number =1;
-  @Input () name: string ="";
-  @Input () text: string ="";
-
   @Output("deleteItem") deleteItem: EventEmitter<any> = new EventEmitter();
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
 
   quantityUp(){
-    this.quantity++;
+    this.item.quantity = this.item.quantity.valueOf() + 1;
   }
   quantityDown(){
-    if(this.quantity > 0) this.quantity--;
+    if(this.item.quantity > 0) {
+      this.item.quantity = this.item.quantity.valueOf() - 1;
+    }
   }
   deleteBaje(){
     this.deleteItem.emit();
   }
 
+  inputChange(what,event){
+    if(what==='price') this.item.price = parseFloat(event.target.value)
+    if(what==='description') this.item.description = event.target.value
+    if(what==='name') this.item.name = event.target.value
+  }
 }
