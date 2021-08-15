@@ -18,4 +18,17 @@ We didn't find anything useful that was free. All the apps that seemed good were
 2. Run ```npm i``` inside the PartyPlanner.Web folder 
 3. Run ```ng serve --proxy-config proxy.conf.json``` 
 ## docker-compose cluster: 
-1. _Comming soon!_
+1. Create ```.env``` file in the root of the project
+2. Input the following variables:
+	* ```ROOT_USERNAME``` - username of the root database account
+	* ```ROOT_PASSWORD``` - password of the root database account
+	* ```APP_USERNAME``` - username of the API user
+	* ```APP_PASSWORD``` - password of the API user
+	* ```DATABASE``` - name of the database for storing parties
+	* ```CONN_STRING``` - connection string of the database with all the authentication info
+	<br>
+	**EXAMPLE**: mongodb://```APP_USERNAME```:```APP_PASSWORD```@PartyPlanner.DB:27017/```DATABASE```?authSource=```DATABASE```
+	<br>
+	Replace the environment variable names with their acutal values.
+3. Run ```docker-compose build``` to build the containers
+4. Run ```docker-compose up``` to start the cluster
