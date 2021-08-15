@@ -28,7 +28,7 @@ namespace PartyPlanner.Rest.Controllers
             return Ok(guests);
         }
 
-        [HttpGet("{partyId}/{guestId}")]
+        [HttpGet("{partyId}/{guestId:int:min(0)}")]
         public async Task<IActionResult> GetByGuestIdAsync(Guid partyId, int guestId)
         {
             var guest = await _manager.Get(partyId, guestId);
@@ -39,10 +39,22 @@ namespace PartyPlanner.Rest.Controllers
             return Ok(guest);
         }
 
-        [HttpPost("{partyId}")]
-        public async Task<IActionResult> Update(Guid partyId, [FromBody] Guest guest)
+        [HttpPost("{partyId}/{guestId:int:min(0)}")]
+        public async Task<IActionResult> Update(Guid partyId, int guestId, [FromBody] Guest guest)
         {
-            var success = await _manager.SetGuest(partyId, guest);
+            var success = await _manager.SetGuest(partyId, guestId, guest);
+
+            if (success)
+                return Ok();
+
+            return BadRequest();
+        }
+
+
+        [HttpPost("{partyId}")]
+        public async Task<IActionResult> UpdateAll(Guid partyId, [FromBody] Guest[] guests)
+        {
+            var success = await _manager.SetGuests(partyId, guests);
 
             if (success)
                 return Ok();
@@ -61,7 +73,7 @@ namespace PartyPlanner.Rest.Controllers
             return BadRequest();
         }
 
-        [HttpDelete("{partyId}/{guestId}")]
+        [HttpDelete("{partyId}/{guestId:int:min(0)}")]
         public async Task<IActionResult> Remove(Guid partyId, int guestId)
         {
             var success = await _manager.Remove(partyId, guestId);
