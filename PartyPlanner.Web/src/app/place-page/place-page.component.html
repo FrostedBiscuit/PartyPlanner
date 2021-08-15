@@ -15,12 +15,20 @@
         <input #days type="number" placeholder="1" value="{{ daysStr }}">
     <!--TODO STYLE THIS-->
     <p>DESCRIPTION</p>
-        <input #description type="text" placeholder="This party will be BLAST. Take swiming trunks and slippers." value="{{ partyInfo.description }}">
+        <textArea rows="6" cols="40" #description type="text" placeholder="This party will be BLAST. Take swiming trunks and slippers." value="{{ partyInfo.description }}"> </textArea>
 
     <p style="text-align: left; padding-left: 8px; margin-bottom: 6px; font-weight: 600; margin-top: 40px;">Location Price</p>
     <span class="input-symbol-euro">
         <input #budget type="text" placeholder="120" value="{{ partyInfo.budget }}" style="width:30% ;float: left;">   
     </span>
+
+    <p>IMAGES</p>
+        <input type="file" id="imagesInput" multiple="multiple" accept="image/png, image/jpeg" (change)="onFileSelected($event)">
+        <p>PNG and JPEG only</p>
+        <p>Only 3 images!!!</p>
+        <app-slideshow
+            [slides]="slides"
+        ></app-slideshow>
 </div>
 
 <div class="footer">

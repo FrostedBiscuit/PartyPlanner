@@ -27,6 +27,7 @@ import { QRCodeModule } from 'angularx-qrcode';
 import { ZXingScannerModule } from '@zxing/ngx-scanner';
 import { CalculatePageComponent } from './calculate-page/calculate-page.component';
 import { InvitePageComponent } from './invite-page/invite-page.component';
+import { SlideshowComponent } from './slideshow/slideshow.component';
 
 
 
@@ -48,7 +49,8 @@ import { InvitePageComponent } from './invite-page/invite-page.component';
     CategoryListPageComponent,
     SharePageComponent,
     CalculatePageComponent,
-    InvitePageComponent
+    InvitePageComponent,
+    SlideshowComponent
     
   ],
   imports: [

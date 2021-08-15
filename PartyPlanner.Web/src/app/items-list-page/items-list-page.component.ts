@@ -1,24 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, KeyValueDiffers} from '@angular/core';
 import { Router,ActivatedRoute, Params } from '@angular/router';
 import { ppRestService} from '../services/ppRest.services';
 import { Item,Category,CategoryBody} from '../party';
-
-
 @Component({
   selector: 'app-items-list-page',
   templateUrl: './items-list-page.component.html',
   styleUrls: ['./items-list-page.component.scss']
 })
+
 export class ItemsListPageComponent implements OnInit {
 
   partyId: String = localStorage.getItem('partyId');
   categoryId: Number;
   category: Category;
   itemList: Item[] = [];
+  objDiffer;
   
   addNewQuantity: number = 0;
 
-  constructor(private router:Router,private activRouter: ActivatedRoute,private _ppRest: ppRestService) { 
+  constructor(private router:Router,private activRouter: ActivatedRoute,private _ppRest: ppRestService,private differs:  KeyValueDiffers) { 
     
     this.activRouter.params.subscribe(
       (params: Params) => 
@@ -30,8 +30,7 @@ export class ItemsListPageComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
  
   createItem(name:String,description:String,price:string){
     
@@ -51,10 +50,7 @@ export class ItemsListPageComponent implements OnInit {
       },
       error => {
         console.log(error);
-    });
-    
-
-    
+    }); 
   }
 
   quantityUp(){
@@ -76,9 +72,19 @@ export class ItemsListPageComponent implements OnInit {
   // }
   
   party(){
+    this.category.items=this.itemList;
+
+    this._ppRest.postCategory(this.partyId,this.category).subscribe(
+      data => {
+        console.log(data);
+      },
+      error => {
+        console.log(error);
+    });
+    
     this.router.navigate(['/categoryList']);
   }
-  
+
   deleteItem(item:Item){
     this.itemList=this.delete(this.itemList,item);
     this.category.items=this.itemList;
