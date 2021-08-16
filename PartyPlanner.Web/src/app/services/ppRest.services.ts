@@ -1,9 +1,8 @@
 import { GlobalConstants } from '../GlobalConstants';
 
 import {Injectable} from '@angular/core';
-import {Observable} from 'rxjs';
 import {HttpClient,HttpHeaders, HttpParams} from '@angular/common/http'
-import { Info,Guest,Category,Item, Party } from '../party';
+import { Info,Guest,Category} from '../party';
 
 
 
@@ -48,6 +47,10 @@ export class ppRestService
 
     postGuest(partyId:String, guest: Guest){
         return this.httpClient.put("/api/Guest/"+partyId,guest,{ headers: this.headers})
+    }
+
+    postGuestList(partyId:String, guestList: Guest[]){
+        return this.httpClient.post("/api/Guest/"+partyId,guestList,{ headers: this.headers})
     }
 
     deleteGuest(partyId:String, guestId:Number){

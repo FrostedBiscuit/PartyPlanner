@@ -50,6 +50,8 @@ export class PartyPageComponent implements OnInit {
         //Addin default categories FOOD,DRINKS
         this.partyAddDefaultCategories();
 
+        this.router.navigate(['/place'])
+
       }),error => {
         alert("Party can't be created");
         console.log(error);
