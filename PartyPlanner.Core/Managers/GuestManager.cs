@@ -29,7 +29,7 @@ namespace PartyPlanner.Core.Managers
         {
             var party = await _repository.GetByIdAsync(partyId);
 
-            return party.ToGuestList();
+            return party?.ToGuestList();
         }
 
         public async Task<Guest> Insert(Guid partyId, Guest guest)
