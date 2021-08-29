@@ -71,12 +71,15 @@ export class GuestListPageComponent implements OnInit {
     }); 
   };
   
-
   party(){
-    this.router.navigate(['/party']) 
+    this._ppRest.postGuestList(this.partyId,this.guestList).subscribe(
+      (data) => {
+        this.router.navigate(['/party']) 
+      },
+      error => {
+        console.log('error');
+    });   
   }
-
- 
 
   toggleHost(){
     this.host = !this.host;
