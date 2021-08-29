@@ -5,9 +5,24 @@
     </div>
 </div>
 
-  
+<div *ngIf="!visible" class="content-party" (click)="party()">
+    <p class="title-party">+ CREATE PARTY</p>
+</div>
 
-<div class="content" *ngIf="!visible" (click)="party()">
+<div *ngIf="!visible" class="content-party" (click)="archive()">
+    <p class="title-party-white">PARTY ARCHIVE</p>
+</div> 
+
+
+
+<!-- <div>  
+    <div class="content-party" *ngFor="let party of partyList" (click)="load(party.id)">
+        <img style="float:right; width: 20%; margin-top:  25px; fill-opacity: 0.5;" src="../../assets/images/food_category.svg">
+        <p class="title-party">{{party.info.name}}</p>
+    </div> 
+</div> -->
+
+<!-- <div class="content" *ngIf="!visible" (click)="party()">
     <img src="../../assets/images/Beer.svg">
     <h1>PARTY</h1>
     <p style="font-weight:500;"> Invite your friends<br>
@@ -21,4 +36,4 @@
     <p style="font-weight:500;">Determine how much money<br>
     you have, then choose<br>
     the drinks, location, and so on.</p>
-</div> 
+</div>  -->

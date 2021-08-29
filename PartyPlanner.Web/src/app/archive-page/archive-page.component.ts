@@ -1,25 +1,29 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { ppRestService} from '../services/ppRest.services';
+import { ppRestService } from '../services/ppRest.services';
 import { Party } from '../party'
 
 @Component({
-  selector: 'app-landing-page',
-  templateUrl: './landing-page.component.html',
-  styleUrls: ['./landing-page.component.scss']
+  selector: 'app-archive-page',
+  templateUrl: './archive-page.component.html',
+  styleUrls: ['./archive-page.component.scss']
 })
-export class LandingPageComponent implements OnInit {
-  visible: boolean = true
+export class ArchivePageComponent implements OnInit {
+
   partyList: Party[] = []
 
   constructor(private router: Router, private _ppRest: ppRestService) {
-    this.hide()
     this.getParties()
-  }
+   }
 
   ngOnInit(): void {
   }
+
+  getDate(date: any): string{
+    const _date = new Date(date);
+    return `${_date.getFullYear()}-${_date.getMonth()}-${_date.getDate()}`;      
+  };
 
   getParties(){
     this._ppRest.getParty().subscribe((result: Party[])=>{
@@ -36,19 +40,9 @@ export class LandingPageComponent implements OnInit {
     this.router.navigate(['/party'])
   }
 
-  hide(){
-    setInterval(() => {
-      this.visible = false
-    },2000)
-  }
-
   party(){
     localStorage.removeItem('partyId');
     this.router.navigate(['/party'])
-  }
-
-  archive(){
-    this.router.navigate(['/archive'])
   }
 
 }

@@ -1,0 +1,17 @@
+<div class="content" (click)="party()">
+    <p class="title-party">+ CREATE PARTY</p>
+</div> 
+
+<div class="content">  
+    <h1>PARTY ARCHIVE</h1>
+    <div class="content-party row" *ngFor="let party of partyList" (click)="load(party.id)">
+        <div class="col">
+            <p>{{party.info.name}}</p>
+            <p>{{getDate(party.info.dateFrom)}}</p>
+        </div>
+        <div class="col">
+            <img style="float:right; width: 50px; margin-top:  25px; fill-opacity: 0.5;" src="../../assets/images/Party_yes.svg">
+        </div>
+
+    </div> 
+</div>
