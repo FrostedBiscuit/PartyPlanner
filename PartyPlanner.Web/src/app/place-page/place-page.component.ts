@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
-import { Slide } from '../_interfaces/slideshow.interface';
 import { ppRestService} from '../services/ppRest.services';
 import { Info } from '../party'
 
@@ -11,30 +10,13 @@ import { Info } from '../party'
   templateUrl: './place-page.component.html',
   styleUrls: ['./place-page.component.scss']
 })
+
 export class PlacePageComponent implements OnInit {
   partyId: String = localStorage.getItem('partyId');
   partyInfo: Info = new Info;
   dateFromStr: String;
   daysStr: String;
   url: String;
-
-  slides: Slide[] = [
-    {
-      headline: "For Your Current Mood",
-      src:
-        "https://images.unsplash.com/photo-1567653418876-5bb0e566e1c2?ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80"
-    },
-    {
-      headline: "Miouw",
-      src:
-        "https://images.unsplash.com/photo-1559181567-c3190ca9959b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2000&q=80"
-    },
-    {
-      headline: "In The Wilderness",
-      src:
-        "https://images.unsplash.com/photo-1557800634-7bf3c7305596?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2001&q=80"
-    }
-  ];
 
   constructor(private router: Router,private _ppRest:ppRestService, private http: HttpClient) {
    
@@ -57,32 +39,6 @@ export class PlacePageComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-  onFileSelected(event){
-    
-    if(event.target.files.length>3){
-      alert("Max is 3 images!");
-      return;
-    }
-
-    //Clear the array
-    this.slides.length = 0
-
-    for (let i= 0; i < event.target.files.length; i++) {
-      const element = event.target.files[i];
-      const reader = new FileReader();
-      reader.readAsDataURL(element);
-      reader.onload = (e: any) => {
-        const slide: Slide = {
-          src: e.target.result,
-        }
-        this.slides.push(slide);
-        this.url = e.target.result;
-      }
-      
-    }
-  }
-
 
   createPartyInfo(name:String, description:String, address:String, exactDirections:String, dateFrom:Date, days: number, budget:Number) {
     
