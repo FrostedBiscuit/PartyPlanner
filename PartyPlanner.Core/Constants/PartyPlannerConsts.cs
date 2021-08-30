@@ -14,7 +14,7 @@ namespace PartyPlanner.Core.Constants
         private const string DB_NAME_DEFAULT = "PartyPlanner";
         private const string COLLECTION_NAME_DEFAULT = "Parties";
 
-        private const string LOG_PATH_DEFAULT = "./logs";
+        private const string LOG_PATH_DEFAULT = "./logs/rest.log";
 
         public static string DBConnectionString { get; private set; }
         public static string PartyPlannerDatabaseName { get; private set; }

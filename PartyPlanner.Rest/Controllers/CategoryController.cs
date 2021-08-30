@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using PartyPlanner.Core.Dtos;
+using PartyPlanner.Core.Helpers;
 using PartyPlanner.Core.Managers.Interfaces;
 
 namespace PartyPlanner.Rest.Controllers
@@ -18,23 +19,29 @@ namespace PartyPlanner.Rest.Controllers
         }
 
         [HttpGet("{partyId}")]
-        public async Task<IActionResult> GetAllByPartyIdAsync(Guid partyId)
+        public async Task<IActionResult> GetAllByPartyIdAsync(Guid partyId, [FromQuery] bool sendItems = true)
         {
             var categories = await _manager.GetAll(partyId);
 
             if (categories == null)
                 return NotFound();
 
+            if (!sendItems)
+                categories.RemoveItemsFromCategoryCollection();
+            
             return Ok(categories);
         }
 
         [HttpGet("{partyId}/{categoryId:int:min(0)}")]
-        public async Task<IActionResult> GetByCateoryIdAsync(Guid partyId, int categoryId)
+        public async Task<IActionResult> GetByCateoryIdAsync(Guid partyId, int categoryId, [FromQuery] bool sendItems = true)
         {
             var result = await _manager.Get(partyId, categoryId);
 
             if (result == null)
                 return NotFound();
+
+            if (!sendItems)
+                result.RemoveItemsFromCategory();
 
             return Ok(result);
         }

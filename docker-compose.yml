@@ -7,9 +7,10 @@ services:
         build: 
             context: .
             dockerfile: ./PartyPlanner.Rest/Dockerfile
+        env_file: .env
         environment: 
-            - ConnectionString=mongodb://PartyPlanner.DB:27017/
-            - DatabaseName=PartyPlanner
+            - ConnectionString=$CONN_STRING
+            - DatabaseName=$MONGO_INITDB_DATABASE
             - CollectionName=Parties
             - LogFilePath=./logs/rest.log
         ports:
@@ -22,9 +23,10 @@ services:
     db:
         container_name: PartyPlanner.DB
         image: mongo
+        env_file: .env
         ports: 
             - "27017:27017"
         restart: always
         volumes: 
-            - ./PartyPlanner.Database:/data/db
-    
+            - ./PartyPlanner.Database/Scripts/:/docker-entrypoint-initdb.d
+            - ./PartyPlanner.Database/Data:/data/db
