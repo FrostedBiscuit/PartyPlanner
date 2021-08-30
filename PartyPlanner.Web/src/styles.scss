@@ -52,78 +52,97 @@ body{
 }
  
 input[type=text], select { //<-Select pomoje odveČ?, saj ga spodaj povozi css
-    width:90%;
-    padding: 12px 8px;
-    margin: 5px 5px 5px 5px;
-    background-Color: #303138;
-    color: white;
-    font-Size:12px;
-    border-Radius: 15px;
-    border-width: 2px;
-    box-shadow: inset 2px 2px 4px #23242A,
-                inset -2px -2px 4px #3B3D44;
-    border-style: none;
-    font-family: 'Raleway', sans-serif;
-  }
+  width:90%;
+  padding: 12px 8px;
+  margin: 5px 5px 5px 5px;
+  background-Color: #303138;
+  color: white;
+  font-Size:12px;
+  border-Radius: 15px;
+  border-width: 2px;
+  box-shadow: inset 2px 2px 4px #23242A,
+              inset -2px -2px 4px #3B3D44;
+  border-style: none;
+  font-family: 'Raleway', sans-serif;
+}
 
   /*    k maš selectan input  */
-  input[type=text]:focus, select {
-    box-shadow: 0px 0px 4px #00ffff;
-    outline: 1px solid #00ffff00;
-
-  }
+input[type=text]:focus, select {
+  box-shadow: 0px 0px 4px #00ffff;
+  outline: 1px solid #00ffff00;
+}
 
 input[type=datetime-local], select { //<-Select pomoje odveČ?, saj ga spodaj povozi css
-    width:90%;
-    padding: 12px 8px;
-    margin: 5px 5px 5px 5px;
-    background-color: #303138;
-    color: white;
-    font-Size:12px;
-    border-Radius: 15px;
-    border-width: 2px;
-    box-shadow: inset 2px 2px 4px #23242A,
-                inset -2px -2px 4px #3B3D44;
-    border-style: none;
-    font-family: 'Raleway', sans-serif;
-    
-  }
+  width:90%;
+  padding: 12px 8px;
+  margin: 5px 5px 5px 5px;
+  background-color: #303138;
+  color: white;
+  font-Size:12px;
+  border-Radius: 15px;
+  border-width: 2px;
+  box-shadow: inset 2px 2px 4px #23242A,
+              inset -2px -2px 4px #3B3D44;
+  border-style: none;
+  font-family: 'Raleway', sans-serif;
+}
 
-  /*Chrome icon white color*/
-  input[type="datetime-local"]::-webkit-calendar-picker-indicator {
-    filter: invert(1);
-  }
+/*Chrome icon white color*/
+input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
 
-  .date-input{
-    background-color: #303138;
-  }
-  
-  /*    k maš selectan input  */
-  input[type=datetime-local]:focus, select {
-    box-shadow: 0px 0px 4px #00ffff;
-    outline: 1px solid #00ffff00;
-  }
+.date-input{
+  background-color: #303138;
+}
+
+/*    k maš selectan input  */
+input[type=datetime-local]:focus, select {
+  box-shadow: 0px 0px 4px #00ffff;
+  outline: 1px solid #00ffff00;
+}
 
 input[type=number], select { //<-Select pomoje odveČ?, saj ga spodaj povozi css
-    width:90%;
-    padding: 12px 10px;
-    margin: 5px 5px 5px 5px;
-    background-Color: #303138;
-    color: white;
-    font-Size:12px;
-    border-Radius: 15px;
-    border-width: 2px;
-    box-shadow: inset 4px 4px 4px #23242A,
-                inset -4px -4px 4px #3B3D44;
-    border-style: none;
-    font-family: 'Raleway', sans-serif;
+  width:90%;
+  padding: 12px 10px;
+  margin: 5px 5px 5px 5px;
+  background-Color: #303138;
+  color: white;
+  font-Size:12px;
+  border-Radius: 15px;
+  border-width: 2px;
+  box-shadow: inset 4px 4px 4px #23242A,
+              inset -4px -4px 4px #3B3D44;
+  border-style: none;
+  font-family: 'Raleway', sans-serif;
   }
   
-  /*    k maš selectan input  */
-  input[type=number]:focus, select {
-    box-shadow: 0px 0px 4px #00ffff;
-    outline: 1px solid #00ffff00;
-  }
+/*    k maš selectan input  */
+input[type=number]:focus, select {
+  box-shadow: 0px 0px 4px #00ffff;
+  outline: 1px solid #00ffff00;
+}
+
+textarea { //<-Select pomoje odveČ?, saj ga spodaj povozi css
+  width:90%;
+  padding: 12px 8px;
+  margin: 5px 5px 5px 5px;
+  background-Color: #303138;
+  color: white;
+  font-Size:12px;
+  border-Radius: 15px;
+  border-width: 2px;
+  box-shadow: inset 2px 2px 4px #23242A,
+              inset -2px -2px 4px #3B3D44;
+  border-style: none;
+  font-family: 'Raleway', sans-serif;
+  resize: none;
+}
+
+textarea:focus, select {
+  box-shadow: 0px 0px 4px #00ffff;
+  outline: 1px solid #00ffff00;
+}
 
 .box{
   display: block;

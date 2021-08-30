@@ -32,7 +32,7 @@ namespace PartyPlanner.Rest.Controllers
             return Ok(categories);
         }
 
-        [HttpGet("{partyId}/{categoryId}")]
+        [HttpGet("{partyId}/{categoryId:int:min(0)}")]
         public async Task<IActionResult> GetByCateoryIdAsync(Guid partyId, int categoryId, [FromQuery] bool sendItems = true)
         {
             var result = await _manager.Get(partyId, categoryId);
@@ -68,7 +68,7 @@ namespace PartyPlanner.Rest.Controllers
             return BadRequest();
         }
 
-        [HttpDelete("{partyId}/{categoryId}")]
+        [HttpDelete("{partyId}/{categoryId:int:min(0)}")]
         public async Task<IActionResult> Remove(Guid partyId, int categoryId)
         {
             var result = await _manager.Remove(partyId, categoryId);

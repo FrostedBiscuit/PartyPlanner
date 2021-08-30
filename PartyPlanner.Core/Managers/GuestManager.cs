@@ -72,14 +72,30 @@ namespace PartyPlanner.Core.Managers
             return true;
         }
 
-        public async Task<bool> SetGuest(Guid partyId, Guest guest)
+        public async Task<bool> SetGuest(Guid partyId, int guestId, Guest guest)
         {
             var party = await _repository.GetByIdAsync(partyId);
 
-            if (!party.Guests.Any(g => g.GuestId == guest.GuestId))
+            if (!party.Guests.Any(g => g.GuestId == guestId))
                 return false;
+            
+            guest.GuestId = guestId;
 
             party.Guests[guest.GuestId].Update(guest);
+
+            await _repository.UpdateAsync(party);
+
+            return true;
+        }
+
+        public async Task<bool> SetGuests(Guid partyId, Guest[] guests)
+        {
+            var party = await _repository.GetByIdAsync(partyId);
+
+            if (party == null)
+                return false;
+
+            party.Guests = guests;
 
             await _repository.UpdateAsync(party);
 

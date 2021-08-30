@@ -29,11 +29,8 @@
 
 
     <app-item-item *ngFor="let item of itemList" (deleteItem)="deleteItem(item)"
-        [item]="item"
-        [price]="item.price"
-        [quantity]="item.quantity"
-        [name]="item.name"
-        [text]="item.description"></app-item-item>   
+        [item]="item">
+    </app-item-item>   
 
 </div>
 
