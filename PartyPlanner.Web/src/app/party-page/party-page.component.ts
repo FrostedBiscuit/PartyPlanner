@@ -19,7 +19,6 @@ export class PartyPageComponent implements OnInit {
 
 
   constructor(private activatedRouter: ActivatedRoute,private router: Router,private _ppRest:ppRestService) {
-    console.log(this.partyId)
     if(this.activatedRouter.snapshot.queryParamMap.get('id') != null){
       this.partyId = this.activatedRouter.snapshot.queryParamMap.get('id')
       localStorage.setItem('partyId',this.partyId)
@@ -108,5 +107,13 @@ export class PartyPageComponent implements OnInit {
       }
       
     
+  }
+
+  removePartyId(){
+    var r = confirm("Are you sure!");
+    if (r == true) {
+      localStorage.removeItem('partyId');
+      this.validPartyId=false;
+    }
   }
 }
