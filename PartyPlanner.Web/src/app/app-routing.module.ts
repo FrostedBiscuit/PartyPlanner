@@ -13,6 +13,7 @@ import { ShoppingItemComponent } from './shopping-item/shopping-item.component';
 import { ShoppingListPageComponent } from './shopping-list-page/shopping-list-page.component';
 import { CalculatePageComponent } from './calculate-page/calculate-page.component';
 import { InvitePageComponent } from './invite-page/invite-page.component';
+import { ArchivePageComponent } from './archive-page/archive-page.component';
 
 const routes: Routes = [
   { path: '', component: LandingPageComponent },
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: 'categoryList', component: CategoryListPageComponent},
   { path: 'share', component: SharePageComponent},
   { path: 'calculate', component: CalculatePageComponent},
+  { path: 'archive', component: ArchivePageComponent},
   { path: 'items/:id', component: ItemsListPageComponent },
   { path: 'invite/:id', component: InvitePageComponent},
 ];

@@ -28,7 +28,7 @@ import { ZXingScannerModule } from '@zxing/ngx-scanner';
 import { CalculatePageComponent } from './calculate-page/calculate-page.component';
 import { InvitePageComponent } from './invite-page/invite-page.component';
 import { SlideshowComponent } from './slideshow/slideshow.component';
-
+import { ArchivePageComponent } from './archive-page/archive-page.component';
 
 
 @NgModule({
@@ -50,7 +50,7 @@ import { SlideshowComponent } from './slideshow/slideshow.component';
     SharePageComponent,
     CalculatePageComponent,
     InvitePageComponent,
-    SlideshowComponent
+    ArchivePageComponent
     
   ],
   imports: [

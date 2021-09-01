@@ -29,3 +29,43 @@ p{
     margin-bottom: 0px;
     font-weight: 700;
 }
+
+.content-party{
+    margin: 21px 21px 21px 21px;
+    background-color: #303138;
+    height: 110px;
+    border-Radius: 30px;
+    padding: 10px;
+    box-Shadow:4px 4px 10px #23242A, -4px -4px 10px #3B3D44;
+}
+
+.title-party{
+    color:  #00ffff;
+    text-align: center;
+    margin-top: 40px;
+    height: 25px;
+    font-size: 25px;
+    text-transform: uppercase;
+    font-weight: 700;
+    outline: none;
+    background-color: #303138;
+    border-style: none;
+    box-shadow: inset 2px 2px 4px #303138,
+                inset -2px -2px 4px #303138;
+    border-style: none;
+}
+
+.title-party-white{
+    text-align: center;
+    margin-top: 40px;
+    height: 25px;
+    font-size: 25px;
+    text-transform: uppercase;
+    font-weight: 700;
+    outline: none;
+    background-color: #303138;
+    border-style: none;
+    box-shadow: inset 2px 2px 4px #303138,
+                inset -2px -2px 4px #303138;
+    border-style: none;
+}
