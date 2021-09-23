@@ -4,8 +4,9 @@
     text="Successful saving"
     visible=true
 ></app-alert> -->
-<app-alert
+<p (click)="test()">GUMBEK</p>
+<app-alert *ngIf="showError"
     type="error"
     text="Error while saving data."
-    visible=true
+    (hideEvent)="hideAlert($event)"
 ></app-alert>

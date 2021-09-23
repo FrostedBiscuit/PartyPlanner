@@ -7,9 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BudgetPageComponent implements OnInit {
 
+  showError: Boolean = false;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  test(){
+    this.showError = true
+  }
+
+  hideAlert($event){
+    this.showError = $event;
   }
 
 }
