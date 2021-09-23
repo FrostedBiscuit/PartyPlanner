@@ -109,6 +109,8 @@ export class PartyPageComponent implements OnInit {
     if (r == true) {
       localStorage.removeItem('partyId');
       this.validPartyId=false;
+      this.router.navigate(['/archive']);
+
     }
   }
 
