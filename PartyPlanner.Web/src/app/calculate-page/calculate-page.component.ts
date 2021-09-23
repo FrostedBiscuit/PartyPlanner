@@ -18,6 +18,8 @@ export class CalculatePageComponent implements OnInit {
   totalBudget:number = 0;
   perPerson:string = '0';
   categoryBudget = [];
+  showError: Boolean = false;
+
 
   constructor(private router: Router,private _ppRest:ppRestService) { 
 
@@ -28,9 +30,7 @@ export class CalculatePageComponent implements OnInit {
         this.guestLen = this.party.guests.length;
         this.calculateCategorySum(this.party.categories);
       },(error)=>{
-
-        alert("ERROR");
-      
+        this.showError = true;
       });
   }
 
@@ -64,6 +64,10 @@ export class CalculatePageComponent implements OnInit {
            (value !== '') &&
            !isNaN(Number(value.toString())));
   } 
+
+  hideAlert($event){
+    this.showError = $event;
+  }
 
   backToParty(){
     this.router.navigate(['/party']) 

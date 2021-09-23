@@ -14,6 +14,8 @@ export class InvitePageComponent implements OnInit {
   partyId: string;
   party: Party;
   going: boolean;
+  showError: Boolean = false;
+  errorText: String = '';
 
   date: String;
   time: String;
@@ -32,7 +34,6 @@ export class InvitePageComponent implements OnInit {
 
     this.checkParty(this.partyId);
 
-    
   }
 
   ngOnInit(): void {
@@ -41,12 +42,14 @@ export class InvitePageComponent implements OnInit {
   enterParty(name:string,email:string){
     // TODO CHECKING
     if(name === ""){
-      alert("name is empty");
+      this.errorText = 'Name is empty';
+      this.showError = true;
       return;
     }
     // TODO CHECKING
     if(email === ""){
-      alert("email is empty");
+      this.errorText = 'Email is empty.';
+      this.showError = true;
       return;
     }
 
@@ -59,14 +62,13 @@ export class InvitePageComponent implements OnInit {
     guest.vegetarian=this.vegetarian;
     guest.paid = this.paid;
 
-    console.log(guest);
-  
     this._ppRest.postGuest(this.partyId,guest).subscribe(
       (data: Guest) => {
         this.router.navigate(['/party']); 
       },
       error => {
-        console.log('error');
+        this.errorText = 'Error while saving data.';
+        this.showError = true;
     }); 
    
   }
@@ -75,18 +77,17 @@ export class InvitePageComponent implements OnInit {
     this._ppRest.getPartyById(partyId).subscribe((result: Party)=>{
       localStorage.setItem('partyId', result.id);
       this.party = result;
-      console.log(result);
       const conDate = new Date(this.party.info.dateFrom)
       this.date = conDate.getDate()+"."+conDate.getMonth()+"."+conDate.getFullYear()
       this.time = conDate.getHours()+":"+conDate.getMinutes()
     },
     error => {
-      alert('Please try again');
+      this.errorText = 'Error checking party.';
+      this.showError = true;
     }); 
   }
 
   changeGoing(going: boolean){
-    console.log(going);
     this.going = going;
   }
 
@@ -108,6 +109,10 @@ export class InvitePageComponent implements OnInit {
 
   toggleDrinker(){
     this.nonDrinker = !this.nonDrinker;
+  }
+
+  hideAlert($event){
+    this.showError = $event;
   }
 
 }

@@ -15,6 +15,8 @@ export class ItemsListPageComponent implements OnInit {
   category: Category;
   itemList: Item[] = [];
   objDiffer;
+  showError: Boolean = false;
+  errorText: String = '';
   
   addNewQuantity: number = 0;
 
@@ -24,10 +26,15 @@ export class ItemsListPageComponent implements OnInit {
       (params: Params) => 
         this.categoryId = params['id']);
         
-    this._ppRest.getCategoryById(this.partyId,this.categoryId).subscribe((result:Category)=>{
-      this.category=result;
-      this.itemList=result.items;
-    });
+    this._ppRest.getCategoryById(this.partyId,this.categoryId).subscribe(
+      (result:Category)=>{
+        this.category=result;
+        this.itemList=result.items;
+      },error =>{
+        this.errorText = 'Error while loading data.';
+        this.showError = true;
+      }
+    );
   }
 
   ngOnInit(): void {}
@@ -40,16 +47,16 @@ export class ItemsListPageComponent implements OnInit {
     item.price=Number.parseFloat(price);
     item.quantity=this.addNewQuantity;
     this.addNewQuantity=0;
-    this.itemList.push(item);
-
-    this.category.items=this.itemList;
+    
  
     this._ppRest.postCategory(this.partyId,this.category).subscribe(
       data => {
-        console.log(data);
+        this.itemList.push(item);
+        this.category.items=this.itemList;
       },
       error => {
-        console.log(error);
+        this.errorText = 'Error while creating item.';
+        this.showError = true;
     }); 
   }
 
@@ -79,7 +86,8 @@ export class ItemsListPageComponent implements OnInit {
         console.log(data);
       },
       error => {
-        console.log(error);
+        this.errorText = 'Error while saving data.';
+        this.showError = true;
     });
     
     this.router.navigate(['/categoryList']);
@@ -93,7 +101,8 @@ export class ItemsListPageComponent implements OnInit {
         console.log(data);
       },
       error => {
-        console.log(error);
+        this.errorText = 'Error while deleting item.';
+        this.showError = true;
     });
   }
 
@@ -103,5 +112,9 @@ export class ItemsListPageComponent implements OnInit {
       array.splice(index, 1);
     }
     return array;
+  }
+
+  hideAlert($event){
+    this.showError = $event;
   }
 }

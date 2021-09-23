@@ -11,6 +11,7 @@ import { Category } from '../party';
 export class CategoryItemComponent implements OnInit {
 
   partyId: String = localStorage.getItem('partyId');
+  showError: Boolean = false;
 
   @Input() category: Category;
 
@@ -28,7 +29,7 @@ export class CategoryItemComponent implements OnInit {
         this.reloadCurrentRoute();
       },
       error => {
-        console.log('error');
+        this.showError = true;
       }); 
   }
 
@@ -42,5 +43,9 @@ export class CategoryItemComponent implements OnInit {
     this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
         this.router.navigate([currentUrl]);
     });
+  }
+
+  hideAlert($event){
+    this.showError = $event;
   }
 }

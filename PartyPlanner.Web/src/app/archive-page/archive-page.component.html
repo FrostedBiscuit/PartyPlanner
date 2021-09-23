@@ -12,6 +12,11 @@
         <div class="col">
             <img style="float:right; width: 50px; margin-top:  25px; fill-opacity: 0.5;" src="../../assets/images/Party_yes.svg">
         </div>
-
     </div> 
 </div>
+
+<app-alert *ngIf="showError"
+    type="error"
+    text="Error while loading data."
+    (hideEvent)="hideAlert($event)"
+></app-alert>

@@ -15,9 +15,9 @@ export class PartyPageComponent implements OnInit {
   partyId: string = localStorage.getItem('partyId');
   party: Party;
   validPartyId: boolean = false;
+  showError: Boolean = false;
+  errorText: String = '';
   
-
-
   constructor(private activatedRouter: ActivatedRoute,private router: Router,private _ppRest:ppRestService) {
     if(this.activatedRouter.snapshot.queryParamMap.get('id') != null){
       this.partyId = this.activatedRouter.snapshot.queryParamMap.get('id')
@@ -31,10 +31,7 @@ export class PartyPageComponent implements OnInit {
     }
    }
 
-  ngOnInit(): void {
-  
-  }
-
+  ngOnInit(): void {}
 
   createParty(partyName:string) {
 
@@ -44,7 +41,6 @@ export class PartyPageComponent implements OnInit {
         this.party=result;
         localStorage.setItem('partyId', result.id);
         this.validPartyId=true; 
-        console.log(result);
 
         //Addin default categories FOOD,DRINKS
         this.partyAddDefaultCategories();
@@ -52,8 +48,8 @@ export class PartyPageComponent implements OnInit {
         this.router.navigate(['/place'])
 
       }),error => {
-        alert("Party can't be created");
-        console.log(error);
+        this.errorText = 'Error while creating party.'
+        this.showError = true;
       }
       
   }
@@ -61,7 +57,6 @@ export class PartyPageComponent implements OnInit {
   partyAddDefaultCategories(){
     this.createCategory("Food");
     this.createCategory("Drinks");
-
   }
 
   createCategory(categoryName: String){
@@ -73,7 +68,8 @@ export class PartyPageComponent implements OnInit {
       
       },
       error => {
-        console.log(error);
+        this.errorText = 'Error while creating category.'
+        this.showError = true;
       });
   }
 
@@ -84,7 +80,8 @@ export class PartyPageComponent implements OnInit {
       console.log(result);
     },
     error => {
-      console.log('error');
+      this.errorText = 'Error while checking if party exists.'
+        this.showError = true;
     }); 
   }
   onTextBtnClick(arg: string){
@@ -105,8 +102,6 @@ export class PartyPageComponent implements OnInit {
       {
         this.checkParty(resultString);
       }
-      
-    
   }
 
   removePartyId(){
@@ -116,4 +111,9 @@ export class PartyPageComponent implements OnInit {
       this.validPartyId=false;
     }
   }
+
+  hideAlert($event){
+    this.showError = $event;
+  }
+
 }

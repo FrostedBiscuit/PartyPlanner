@@ -71,6 +71,12 @@
 </div> -->
 <!-- end of shopping div -->
 
+<app-alert *ngIf="showError"
+    type="error"
+    text="{{errorText}}"
+    (hideEvent)="hideAlert($event)"
+></app-alert>
+
 <div class="footer">
     <div class="btnSmall" style="margin-left: 21px;" (click)="party()">
         <img src="../../assets/images/Back.svg" style="width: 12px; height: auto;">

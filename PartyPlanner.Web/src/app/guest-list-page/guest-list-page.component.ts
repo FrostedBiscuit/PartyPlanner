@@ -11,6 +11,8 @@ export class GuestListPageComponent implements OnInit {
   
   partyId: String = localStorage.getItem('partyId');
   guestList: Guest[];
+  showError: Boolean = false;
+  errorText: String = '';
 
   contetVisible: boolean = false;
 
@@ -28,6 +30,10 @@ export class GuestListPageComponent implements OnInit {
 
       this.contetVisible=this.guestList.length>0;
 
+    },
+    error =>{
+      this.errorText = 'Error while loading data.'
+      this.showError = true;
     });
   }
 
@@ -76,7 +82,8 @@ export class GuestListPageComponent implements OnInit {
         this.router.navigate(['/party']) 
       },
       error => {
-        console.log('error');
+        this.errorText = 'Error while saving data.'
+        this.showError = true;
         this.router.navigate(['/party']) 
     });   
   }
@@ -107,6 +114,10 @@ export class GuestListPageComponent implements OnInit {
         this.router.navigate([currentUrl]);
         console.log(currentUrl);
     });
+  }
+
+  hideAlert($event){
+    this.showError = $event;
   }
 
 }

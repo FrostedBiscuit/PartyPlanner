@@ -41,12 +41,16 @@
 
 <div *ngIf="contetVisible" id="cont" class="content" style="clear:both; overflow-y:auto;">  
     
-
     <app-guest-item *ngFor="let guest of guestList"
         [guest]="guest"
         ></app-guest-item>   
 </div>
 
+<app-alert *ngIf="showError"
+    type="error"
+    text="{{errorText}}"
+    (hideEvent)="hideAlert($event)"
+></app-alert>
 
 <div class="footer">
     <div class="btnSmall" style="float:left; margin-left: 21px;" (click)="party()">

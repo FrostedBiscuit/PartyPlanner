@@ -15,6 +15,10 @@
         <img class="forward" src="../../assets/images/Back.svg">
     </div>  
     -->
-
-    
 </div>
+
+<app-alert *ngIf="showError"
+    type="error"
+    text="Error while loading data."
+    (hideEvent)="hideAlert($event)"
+></app-alert>

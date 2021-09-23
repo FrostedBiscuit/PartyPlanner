@@ -35,3 +35,9 @@
     </div>
     
 </div>
+
+<app-alert *ngIf="showError"
+    type="error"
+    text="Error while deleting guest."
+    (hideEvent)="hideAlert($event)"
+></app-alert>

@@ -22,9 +22,13 @@
     <app-category-item *ngFor="let category of categoryList"
         [category]="category">
     </app-category-item>
-
 </div>
 
+<app-alert *ngIf="showError"
+    type="error"
+    text="Error while creating category"
+    (hideEvent)="hideAlert($event)"
+></app-alert>
 
 <div class="footer">
     <div class="btnSmall" style="float:left; margin-left: 21px;" (click)="goToParty()">

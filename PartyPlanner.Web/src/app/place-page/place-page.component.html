@@ -24,6 +24,12 @@
 
 </div>
 
+<app-alert *ngIf="showError"
+    type="error"
+    text="Error while creating party."
+    (hideEvent)="hideAlert($event)"
+></app-alert>
+
 <div class="footer">
     <div class="btnSmall" style="float:left;" (click)="createPartyInfo(name.value,description.value,address.value,exactDirections.value,dateFrom.value,days.value,budget.value)">
         <img src="../../assets/images/Back.svg" style="width: 12px; height: auto;">

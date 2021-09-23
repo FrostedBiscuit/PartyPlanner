@@ -17,6 +17,7 @@ export class PlacePageComponent implements OnInit {
   dateFromStr: String;
   daysStr: String;
   url: String;
+  showError: Boolean = false;
 
   constructor(private router: Router,private _ppRest:ppRestService, private http: HttpClient) {
    
@@ -58,8 +59,11 @@ export class PlacePageComponent implements OnInit {
         this.router.navigate(['/party'])     
       },
       error => {
-        alert("Saving failed!");
+        this.showError = true;
     })
- 
+  }
+
+  hideAlert($event){
+    this.showError = $event;
   }
 }

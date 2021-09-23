@@ -13,7 +13,11 @@
     <p class="title-party-white">PARTY ARCHIVE</p>
 </div> 
 
-
+<app-alert *ngIf="showError"
+    type="error"
+    text="Error while loading data."
+    (hideEvent)="hideAlert($event)"
+></app-alert>
 
 <!-- <div>  
     <div class="content-party" *ngFor="let party of partyList" (click)="load(party.id)">

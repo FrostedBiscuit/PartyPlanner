@@ -13,6 +13,7 @@ export class CategoryListPageComponent implements OnInit {
   partyId: String = localStorage.getItem('partyId');
 
   categoryList: Category[];
+  showError: Boolean = false;
   
   constructor(private router: Router,private _ppRest: ppRestService) { }
 
@@ -39,13 +40,16 @@ export class CategoryListPageComponent implements OnInit {
        }
      },
      error => {
-       console.log(error);
+      this.showError = true;
      });
   }
 
-
   goToParty(){
     this.router.navigate(['/party']);
+  }
+
+  hideAlert($event){
+    this.showError = $event;
   }
 
 }

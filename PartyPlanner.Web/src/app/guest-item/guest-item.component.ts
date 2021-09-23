@@ -10,21 +10,19 @@ import { ppRestService} from '../services/ppRest.services';
 })
 export class GuestItemComponent implements OnInit {
   
-  partyId: String = localStorage.getItem('partyId');
-
   @Input() guest: Guest; 
- 
   
+  partyId: String = localStorage.getItem('partyId');
+  showError: Boolean = false;
+
   constructor(private router: Router,private _ppRest: ppRestService) { 
     
   }
 
   ngOnInit(): void {
-    console.log(this.guest);
   }
 
   toggleHost(){
-    
     this.guest.host = !this.guest.host;
   }
 
@@ -51,7 +49,7 @@ export class GuestItemComponent implements OnInit {
         this.reloadCurrentRoute()
       },
       error => {
-        console.log('error');
+        this.showError = true;
       });  
   }
 
@@ -61,6 +59,10 @@ export class GuestItemComponent implements OnInit {
         this.router.navigate([currentUrl]);
         console.log(currentUrl);
     });
+  }
+
+  hideAlert($event){
+    this.showError = $event;
   }
   
 }

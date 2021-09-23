@@ -12,6 +12,7 @@ import { Party } from '../party'
 export class LandingPageComponent implements OnInit {
   visible: boolean = true
   partyList: Party[] = []
+  showError: Boolean = false;
 
   constructor(private router: Router, private _ppRest: ppRestService) {
     this.hide()
@@ -23,11 +24,10 @@ export class LandingPageComponent implements OnInit {
 
   getParties(){
     this._ppRest.getParty().subscribe((result: Party[])=>{
-      console.log(result);
       this.partyList = result;
     },
     error => {
-      console.log('error');
+      this.showError = true;
     }); 
   }
 
@@ -49,6 +49,10 @@ export class LandingPageComponent implements OnInit {
 
   archive(){
     this.router.navigate(['/archive'])
+  }
+
+  hideAlert($event){
+    this.showError = $event;
   }
 
 }

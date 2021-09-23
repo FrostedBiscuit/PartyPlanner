@@ -67,3 +67,9 @@
     </div>
 </div>
 
+<app-alert *ngIf="showError"
+    type="error"
+    text="{{errorText}}"
+    (hideEvent)="hideAlert($event)"
+></app-alert>
+

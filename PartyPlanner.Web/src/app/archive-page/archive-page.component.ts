@@ -12,6 +12,7 @@ import { Party } from '../party'
 export class ArchivePageComponent implements OnInit {
 
   partyList: Party[] = []
+  showError: Boolean = false;
 
   constructor(private router: Router, private _ppRest: ppRestService) {
     this.getParties()
@@ -27,11 +28,10 @@ export class ArchivePageComponent implements OnInit {
 
   getParties(){
     this._ppRest.getParty().subscribe((result: Party[])=>{
-      console.log(result);
       this.partyList = result;
     },
     error => {
-      console.log('error');
+      this.showError = true;
     }); 
   }
 
@@ -43,6 +43,10 @@ export class ArchivePageComponent implements OnInit {
   party(){
     localStorage.removeItem('partyId');
     this.router.navigate(['/party'])
+  }
+
+  hideAlert($event){
+    this.showError = $event;
   }
 
 }

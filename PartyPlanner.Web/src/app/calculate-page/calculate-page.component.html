@@ -30,6 +30,12 @@
     </div>
 </div>
 
+<app-alert *ngIf="showError"
+    type="error"
+    text="Error while deleting category."
+    (hideEvent)="hideAlert($event)"
+></app-alert>
+
 <div class="footer-back">
     <div class="btnSmall" style="float:left; margin-left: 21px;" (click)="backToParty()">
         <img src="../../assets/images/Back.svg" style="width: 12px; height: auto;">
