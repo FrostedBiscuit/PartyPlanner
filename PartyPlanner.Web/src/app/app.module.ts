@@ -29,6 +29,7 @@ import { CalculatePageComponent } from './calculate-page/calculate-page.componen
 import { InvitePageComponent } from './invite-page/invite-page.component';
 import { SlideshowComponent } from './slideshow/slideshow.component';
 import { ArchivePageComponent } from './archive-page/archive-page.component';
+import { AlertComponent } from './alert/alert.component';
 
 
 @NgModule({
@@ -50,7 +51,8 @@ import { ArchivePageComponent } from './archive-page/archive-page.component';
     SharePageComponent,
     CalculatePageComponent,
     InvitePageComponent,
-    ArchivePageComponent
+    ArchivePageComponent,
+    AlertComponent
     
   ],
   imports: [
