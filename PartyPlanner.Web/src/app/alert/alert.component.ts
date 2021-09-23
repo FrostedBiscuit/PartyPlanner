@@ -9,10 +9,15 @@ export class AlertComponent implements OnInit {
 
   @Input() type: string;
   @Input() text: string;
+  @Input() visible: boolean;
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  hideAlert(){
+    this.visible = false;
   }
 
 }
