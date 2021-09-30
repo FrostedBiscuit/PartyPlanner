@@ -5,12 +5,16 @@
     </div>
 </div>
 
-<div *ngIf="!visible" class="content-party" (click)="party()">
-    <p class="title-party">+ CREATE PARTY</p>
+<div *ngIf="!visible" class="content-party" (click)="party()" style="padding:0 auto;">
+    <img class="child" src="../../assets/images/create.svg" alt="Minus" width="50px" >
+    <p class="title-party">CREATE PARTY</p>
 </div>
 
-<div *ngIf="!visible" class="content-party" (click)="archive()">
+<div *ngIf="!visible" class="content-party" (click)="archive()" style="padding:0 auto;">
+    <div style="vertical-align: middle; ">
+    <img class="child" src="../../assets/images/archive.svg" alt="Minus" width="50px">
     <p class="title-party-white">PARTY ARCHIVE</p>
+    </div>
 </div> 
 
 

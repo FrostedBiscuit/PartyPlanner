@@ -1,3 +1,4 @@
+
 <div class="content">
     <input type="text" style="float: left; width:150px;"  value={{item.name}} (change)="inputChange('name',$event)"/>
     <!-- <h2 style="float: right;">14€</h2> -->
@@ -11,9 +12,37 @@
         <p class="child">{{ item.quantity }}</p>
         <img class="child" src="../../assets/images/Plus.svg" alt="Plus" width="50px" (click)="quantityUp()">
     </div>
-    <div class="btnSmall" style="float: right;  margin-top:10px; margin-left: 10px;"(click)="deleteBaje()">X</div>
+
+
+    
+    <div class="btnSmall" style="margin-top:10px; float: right;"(click)="deleteBaje()"><img class="child" src="../../assets/images/trash.svg" alt="trash" width="25px"></div>
+
+
+    <p style="float: right; margin-right: 15px;"> 21€ x 3 = 63€ </p>
+
+    
+    
+    
     <!-- Cart button
     <div class="btnMedium" style="float: right;"> ADD TO CART</div>
     -->
     <br style="clear:both">
+</div>
+
+
+<!--spremen to-->
+<div class="content">
+    <p style="text-align: center;">Summary </p>
+    <table style="width:100%">
+        <tr>
+        </tr>
+        <tr>
+          <td>Vodka</td>
+          <td>21€</td>
+        </tr>
+        <tr>
+          <td>Total</td>
+          <td>Mexico</td>
+        </tr>
+      </table>
 </div>
