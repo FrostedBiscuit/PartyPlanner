@@ -26,3 +26,9 @@
     content: "€";
     right: 15px;
   }
+
+  .input-guest {
+    border-width: 0px;
+    box-shadow: inset 2px 2px 4px #303138,
+                inset -2px -2px 4px #303138;
+  }

@@ -7,6 +7,10 @@
   
     <div class="btnMedium1" (click)="createParty(partyName.value)">Create</div>
 </div>
+
+
+<!--  CHECK EXISTING PARTY
+
 <div *ngIf="!validPartyId" class="content">
    
     <h1 class="naslovi">Check existing party</h1>
@@ -22,6 +26,8 @@
     <zxing-scanner id="scanner" [formats]="['QR_CODE']" (scanSuccess)="onCodeResult($event)" ></zxing-scanner>
 
 </div>
+
+-->
 
 <!-- ELSE JS doesn't detect party ID in session storage -->
 <div *ngIf="validPartyId" class="content" (click)="onTextBtnClick('PLACE')">
