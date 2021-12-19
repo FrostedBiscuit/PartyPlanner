@@ -22,7 +22,7 @@ namespace PartyPlanner.Core.Managers
         {
             var party = await _repository.GetByIdAsync(partyId);
 
-            return party.Guests.SingleOrDefault(g => g.GuestId == guestId);
+            return party?.Guests.SingleOrDefault(g => g.GuestId == guestId);
         }
 
         public async Task<GuestList> GetAll(Guid partyId)
@@ -36,14 +36,14 @@ namespace PartyPlanner.Core.Managers
         {
             var party = await _repository.GetByIdAsync(partyId);
 
-            if (party == null)
+            if (party == null || guest == null)
                 return null;
 
             var guests = party.Guests;
 
             Array.Resize(ref guests, guests.Length + 1);
 
-            guest.GuestId = guests.Length;
+            guest.GuestId = guests.Length - 1;
 
             guests[guests.Length - 1] = guest;
 
@@ -58,7 +58,7 @@ namespace PartyPlanner.Core.Managers
         {
             var party = await _repository.GetByIdAsync(partyId);
 
-            if (!party.Guests.Any(g => g.GuestId == guestId))
+            if (party == null  || !party.Guests.Any(g => g.GuestId == guestId))
                 return false;
 
             var newGuests = from g in party.Guests
