@@ -27,7 +27,10 @@ We didn't find anything useful that was free. All the apps that seemed good were
 	* ```DATABASE``` - name of the database for storing parties
 	* ```CONN_STRING``` - connection string of the database with all the authentication info
 	<br>
-	**EXAMPLE**: mongodb://```APP_USERNAME```:```APP_PASSWORD```@PartyPlanner.DB:27017/```DATABASE```?authSource=```DATABASE```
+	<b>EXAMPLE</b>:
+	<pre>
+	 mongodb://<b>$APP_USERNAME</b>:<b>$APP_PASSWORD</b>@PartyPlanner.DB:27017/<b>$DATABASE</b>?authSource=<b>$DATABASE</b>
+	</pre>
 	<br>
 	Replace the environment variable names with their acutal values.
 3. Run ```docker-compose build``` to build the containers
