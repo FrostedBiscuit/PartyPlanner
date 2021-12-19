@@ -28,10 +28,7 @@ We didn't find anything useful that was free. All the apps that seemed good were
 	* ```CONN_STRING``` - connection string of the database with all the authentication info
 	<br>
 	<b>EXAMPLE</b>:
-	<pre>
-	 mongodb://<b>$APP_USERNAME</b>:<b>$APP_PASSWORD</b>@PartyPlanner.DB:27017/<b>$DATABASE</b>?authSource=<b>$DATABASE</b>
-	</pre>
-	<br>
+	<pre>mongodb://<b>$APP_USERNAME</b>:<b>$APP_PASSWORD</b>@PartyPlanner.DB:27017/<b>$DATABASE</b>?authSource=<b>$DATABASE</b></pre>
 	Replace the environment variable names with their acutal values.
 3. Run ```docker-compose build``` to build the containers
 4. Run ```docker-compose up``` to start the cluster
