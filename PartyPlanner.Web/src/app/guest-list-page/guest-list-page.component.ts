@@ -54,7 +54,6 @@ export class GuestListPageComponent implements OnInit {
     this._ppRest.postGuest(this.partyId,guest).subscribe(
       (data: Guest) => {
         
-
         this.guestList.push(data);
 
         //reset datafields
@@ -78,6 +77,7 @@ export class GuestListPageComponent implements OnInit {
       },
       error => {
         console.log('error');
+        this.router.navigate(['/party']) 
     });   
   }
 

@@ -71,7 +71,7 @@ export class ppRestService
     }
 
     deleteCategory(partyId:String,categoryId:Number){
-        return this.httpClient.delete("api/Category/"+partyId+"/"+categoryId);
+        return this.httpClient.delete("/api/Category/"+partyId+"/"+categoryId);
     }
 
     getCategoryById(partyId:String,categoryId:Number){
